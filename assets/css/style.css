@@ -44,3 +44,26 @@ h1 {
     transition: transform 300ms;
     transform: scale(103%);
 }
+
+/* quiz page */
+
+.quiz-box {
+    width: 40%;
+    height: 60%;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.picture-item {
+    height: 25%;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#list   {
+    list-style: none;
+}
