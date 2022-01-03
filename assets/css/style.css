@@ -19,6 +19,7 @@ h1 {
     align-items: center;
     height: 100vh;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 #box {
@@ -47,6 +48,18 @@ h1 {
 
 /* quiz page */
 
+#header {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+}
+
+#header h1 {
+    padding-top: 4px;
+    overflow: hidden;
+}
+
 .quiz-box {
     min-width: 400px;
     min-height: 400px;
@@ -60,10 +73,13 @@ h1 {
     margin: none;
     padding: none;
     display: block;
+    overflow: hidden;
+    object-fit: contain;
 }
 
 #pic1 {
-    vertical-align: top;
+    display: block;
+    margin: 0;
 }
 
 .quiz-button {
@@ -81,4 +97,10 @@ h1 {
     box-shadow: 0px 5px 15px 5px rgba(12,26,37,0.54);
     transition: transform 300ms;
     transform: scale(103%);
+}
+
+@media screen and (max-width: 768px) {
+    .quiz-box {
+        min-width: 40rem;
+    }
 }
