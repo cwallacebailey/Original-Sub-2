@@ -48,22 +48,37 @@ h1 {
 /* quiz page */
 
 .quiz-box {
-    width: 40%;
-    height: 60%;
-    border: black;
-    border-width: 1px;
-    border-style: solid;
+    min-width: 400px;
+    min-height: 400px;
     text-align: center;
     margin-right: 20px;
+    display: block;
 }
 
 .picture-item {
-    height: 25%;
-    border: black;
-    border-width: 1px;
-    border-style: solid;
+    height: fit-content;
+    margin: none;
+    padding: none;
+    display: block;
 }
 
-#list   {
-    list-style: none;
+#pic1 {
+    vertical-align: top;
+}
+
+.quiz-button {
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: none;
+    margin: 1.5rem;
+    padding: 2rem;
+    width: 400px;
+    background-color: #0c1a25;
+    border-radius: 10px;
+}
+
+.quiz-button:hover {
+    box-shadow: 0px 5px 15px 5px rgba(12,26,37,0.54);
+    transition: transform 300ms;
+    transform: scale(103%);
 }
