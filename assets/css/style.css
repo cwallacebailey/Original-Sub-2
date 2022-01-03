@@ -48,14 +48,14 @@ h1 {
 
 /* quiz page */
 
-#header {
+.center {
     justify-content: center;
     align-items: center;
     text-align: center;
     height: fit-content;
 }
 
-#header h1 {
+.center h1 {
     padding-top: 5vh;
 }
 
@@ -114,6 +114,11 @@ h1 {
     box-shadow: 0px 5px 15px 5px rgba(12,26,37,0.54);
     transition: transform 300ms;
     transform: scale(103%);
+}
+
+#footer {
+    padding-top: 10rem;
+    font-size: 2rem;
 }
 
 @media screen and (max-width: 600px) {
