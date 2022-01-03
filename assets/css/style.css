@@ -119,13 +119,13 @@ h1 {
 @media screen and (max-width: 600px) {
 
     .contain {
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .quiz-button {
         font-size: 2rem;
         margin: 0.5rem;
         padding: 2rem;
-        width: 90%;
+        width: 350px;
     }
 }
