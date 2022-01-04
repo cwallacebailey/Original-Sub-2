@@ -121,7 +121,35 @@ h1 {
     font-size: 2rem;
 }
 
+/* end of quiz page */
+
+#username {
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: none;
+    margin: 1rem;
+
+    width: 25rem;
+    background-color:#FBF8BE;
+    color: #234E70;
+    border-radius: 10px;
+}
+
+#score {
+    font-size: 3rem;
+}
+
+#label {
+    font-size: 3rem;
+    padding-top: 2.5rem;
+}
+
 @media screen and (max-width: 600px) {
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
 
     .contain {
         justify-content: center;
@@ -133,4 +161,6 @@ h1 {
         padding: 2rem;
         width: 350px;
     }
+
+
 }
