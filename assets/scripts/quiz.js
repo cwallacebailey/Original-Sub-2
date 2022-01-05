@@ -4,6 +4,95 @@ window.onload = () => {
     var username = document.getElementById("username").focus();
   }
 
+// create array
+
+const array = [
+    {
+    name : 'chris',
+    img1 : 'assets/images/chris1.png',
+    img2 : 'assets/images/chris1.png',
+    img3 : 'assets/images/chris1.png',
+    img4 : 'assets/images/chris1.png',
+    choice1 : 'David Beckham',
+    choice2 : 'Ryan Reynolds',
+    choice3 : 'Christian Bale',
+    choice4 : 'Hugh Jackman',
+    answer : 3,
+    },
+    {
+    name : 'chris',
+    img1 : 'assets/images/chris1.png',
+    img2 : 'assets/images/chris1.png',
+    img3 : 'assets/images/chris1.png',
+    img4 : 'assets/images/chris1.png',
+    choice1 : 'David Beckham',
+    choice2 : 'Ryan Reynolds',
+    choice3 : 'Christian Bale',
+    choice4 : 'Hugh Jackman',
+    answer : 3,
+    },
+    {
+    name : 'chris',
+    img1 : 'assets/images/chris1.png',
+    img2 : 'assets/images/chris1.png',
+    img3 : 'assets/images/chris1.png',
+    img4 : 'assets/images/chris1.png',
+    choice1 : 'David Beckham',
+    choice2 : 'Ryan Reynolds',
+    choice3 : 'Christian Bale',
+    choice4 : 'Hugh Jackman',
+    answer : 3,
+    },
+    {
+    name : 'chris',
+    img1 : 'assets/images/chris1.png',
+    img2 : 'assets/images/chris1.png',
+    img3 : 'assets/images/chris1.png',
+    img4 : 'assets/images/chris1.png',
+    choice1 : 'David Beckham',
+    choice2 : 'Ryan Reynolds',
+    choice3 : 'Christian Bale',
+    choice4 : 'Hugh Jackman',
+    answer : 3,
+    },
+    {
+    name : 'chris',
+    img1 : 'assets/images/chris1.png',
+    img2 : 'assets/images/chris1.png',
+    img3 : 'assets/images/chris1.png',
+    img4 : 'assets/images/chris1.png',
+    choice1 : 'David Beckham',
+    choice2 : 'Ryan Reynolds',
+    choice3 : 'Christian Bale',
+    choice4 : 'Hugh Jackman',
+    answer : 3,
+    },
+    {
+    name : 'chris',
+    img1 : 'assets/images/chris1.png',
+    img2 : 'assets/images/chris1.png',
+    img3 : 'assets/images/chris1.png',
+    img4 : 'assets/images/chris1.png',
+    choice1 : 'David Beckham',
+    choice2 : 'Ryan Reynolds',
+    choice3 : 'Christian Bale',
+    choice4 : 'Hugh Jackman',
+    answer : 3,
+    },
+    {
+    name : 'chris',
+    img1 : 'assets/images/chris1.png',
+    img2 : 'assets/images/chris1.png',
+    img3 : 'assets/images/chris1.png',
+    img4 : 'assets/images/chris1.png',
+    choice1 : 'David Beckham',
+    choice2 : 'Ryan Reynolds',
+    choice3 : 'Christian Bale',
+    choice4 : 'Hugh Jackman',
+    answer : 3,
+    },
+]
+
 // quiz page
 
 function beginGame() {
