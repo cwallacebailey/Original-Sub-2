@@ -21,10 +21,10 @@ const array = [
     },
     {
     name : 'dan',
-    img1 : 'assets/images/dan1.png',
-    img2 : 'assets/images/dan2.png',
-    img3 : 'assets/images/dan3.png',
-    img4 : 'assets/images/dan4.png',
+    img1 : 'assets/images/dan1.jpg',
+    img2 : 'assets/images/dan2.jpg',
+    img3 : 'assets/images/dan3.jpg',
+    img4 : 'assets/images/dan4.jpg',
     choice1 : 'Dany trejo',
     choice2 : 'Cheech Marin',
     choice3 : 'Tom Savini',
@@ -93,26 +93,26 @@ const array = [
     },
 ]
 
-console.log(array)
+function beginGame() {
+    let picture1 = document.getElementById("pic1")
+    let picture2 = document.getElementById("pic2")
+    let picture3 = document.getElementById("pic3")
+    let picture4 = document.getElementById("pic4")
+    let start = Math.floor(Math.random()*6)
+    
+    picture1.src = array[start].img1;
+    picture2.src = array[start].img2;
+    picture3.src = array[start].img3;
+    picture4.src = array[start].img4;
 
-const quizBox = document.getElementById("quizBox")
+}
 
-console.log(quizBox)
 
 
 
 /*
 
 // quiz page
-
-function beginGame() {
-    let score = document.getElementById("score")
-    let pointsToWin = document.getElementById("pointsToWin")
-
-    score = 0
-    pointsToWin = 20
-}
-
 
 //function getImageQuestion() //would this include the question? Need to build array
 
