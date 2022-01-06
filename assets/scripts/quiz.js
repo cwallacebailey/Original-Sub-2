@@ -1,7 +1,7 @@
 // focus on enter username box on opening index.html
 
-window.onload = () => {
-    var username = document.getElementById("username").focus();
+function focus() {
+    document.getElementById("username").focus();
   }
 
 // create array
@@ -93,6 +93,16 @@ const array = [
     },
 ]
 
+console.log(array)
+
+const quizBox = document.getElementById("quizBox")
+
+console.log(quizBox)
+
+
+
+/*
+
 // quiz page
 
 function beginGame() {
@@ -122,3 +132,5 @@ function manage(text) {
         save.style.cursor = "disabled";
     }
 }
+
+*/
