@@ -82,7 +82,7 @@ h1 {
 }
 
 .center h1 {
-    padding-top: 5vh;
+    padding-top: 1rem;
 }
 
 .contain {
@@ -142,9 +142,8 @@ h1 {
     transform: scale(103%);
 }
 
-#footer {
-    padding-top: 10rem;
-    font-size: 2rem;
+#instructions {
+    font-size: 1rem;
 }
 
 /* end of quiz page */
