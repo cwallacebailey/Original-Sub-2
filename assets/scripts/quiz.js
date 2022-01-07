@@ -4,6 +4,16 @@ function focus() {
     document.getElementById("username").focus();
   }
 
+function instructions() {
+    let instructions = document.getElementById("instructionsBox")
+    instructions.setAttribute("style", "display: block")
+}
+
+function instructionsGone() {
+    let instructions = document.getElementById("instructionsBox")
+    instructions.setAttribute("style", "display: none")
+}
+
 // create array
 
 const array = [
@@ -81,10 +91,10 @@ const array = [
     },
     {
     name : 'ser',
-    img1 : 'assets/images/ser1.png',
-    img2 : 'assets/images/ser2.png',
-    img3 : 'assets/images/ser3.png',
-    img4 : 'assets/images/ser4.png',
+    img1 : 'assets/images/ser1.jpg',
+    img2 : 'assets/images/ser2.jpg',
+    img3 : 'assets/images/ser3.jpg',
+    img4 : 'assets/images/ser4.jpg',
     choice1 : '1. Serena Williams',
     choice2 : '2. Isha Price',
     choice3 : '3. Venus Williams',
@@ -102,7 +112,7 @@ function beginGame() {
     let q2 = document.getElementById("q2")
     let q3 = document.getElementById("q3")
     let q4 = document.getElementById("q4")
-    let start = Math.floor(Math.random()*6)
+    let start = Math.floor(Math.random()*7)
     
     picture1.src = array[start].img1;
     picture2.src = array[start].img2;

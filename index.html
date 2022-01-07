@@ -21,10 +21,10 @@
             <h1>Welcome to the Celebrity Quiz</h1>
             <label for="username" id="label">Enter Username:</label>
             <input type="text" id="username">
-            <input type="submit" class="button" id="save" value="Save" disabled/>
             <a href="quiz-page.html" class="button">Enter Quiz</a>
-            <a href="leaderboard.html" class="button">Leaderboard</a>
-            <p class="button">Instructions</p>
+            <a href="leaderboard.html" class="button">Highscores</a>
+            <p class="button" id="instructionsBox" onclick="instructionsGone()">Click an image section to reveal part of the celebrity. Guess the celeb with as few flips as you can to get the most points</p>
+            <p class="button" onclick="instructions()" id="instructions">Instructions</p>
         </div>
     </section>
     <!--javascript-->

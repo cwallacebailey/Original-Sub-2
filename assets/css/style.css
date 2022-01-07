@@ -67,6 +67,11 @@ h1 {
     transform: scale(103%);
 }
 
+#instructionsBox {
+    display: none;
+    font-size: 1.5rem;
+}
+
 /* quiz page */
 
 .center {
