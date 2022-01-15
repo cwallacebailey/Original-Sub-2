@@ -28,7 +28,6 @@ function saveUsername() {
         alert("Please enter a username over 2 characters")
     } else {
     usernameSave.push(username)
-    alert(`Your username: ${usernameSave[0]}`)
     window.location.href = "quiz-page.html";
     }
 }
@@ -125,6 +124,7 @@ const array = [
 function beginGame() {
     let score = 0
     let pointsToWin = 20
+    let progressBar = document.getElementById("progressBar")
     let setScore = document.getElementById("score")
     setScore.innerText = score
     let points = document.getElementById("pointsToWin")
@@ -172,6 +172,7 @@ function beginGame() {
         setTimeout(function() {
             selection.style.backgroundColor = "#0c1a25"
             array.splice(start,1)
+            //progressBar.style.width = `${((7-multiple)/7)*100}%`
             console.log(array)
             console.log(score)
             LoadQuestion()
