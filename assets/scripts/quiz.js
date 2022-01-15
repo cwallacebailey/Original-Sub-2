@@ -44,7 +44,7 @@ const array = [
     choice2 : '2. Jared Leto',
     choice3 : '3. Christian Bale',
     choice4 : '4. Hugh Jackman',
-    answer : 3,
+    answer : '3. Christian Bale',
     },
     {
     name : 'dan',
@@ -56,7 +56,7 @@ const array = [
     choice2 : '2. Cheech Marin',
     choice3 : '3. Tom Savini',
     choice4 : '4. John P. Fedele',
-    answer : 1,
+    answer : '1. Dany trejo',
     },
     {
     name : 'eli',
@@ -68,7 +68,7 @@ const array = [
     choice2 : '2. Daniel Radcliffe',
     choice3 : '3. Elija Wood',
     choice4 : '4. Oliver Phelps',
-    answer : 3,
+    answer : '3. Elija Wood',
     },
     {
     name : 'lea',
@@ -80,7 +80,7 @@ const array = [
     choice2 : '2. Lea Seydoux',
     choice3 : '3. Ariana Labed',
     choice4 : '4. Saoirse Ronan',
-    answer : 2,
+    answer : '2. Lea Seydoux',
     },
     {
     name : 'mah',
@@ -92,7 +92,7 @@ const array = [
     choice2 : '2. Anthony Mackie',
     choice3 : '3. Don Cheadle',
     choice4 : '4. Mahershala Ali.',
-    answer : 3,
+    answer : '4. Mahershala Ali.',
     },
     {
     name : 'nic',
@@ -104,7 +104,7 @@ const array = [
     choice2 : '2. Thomas Jane',
     choice3 : '3. John Travolta',
     choice4 : '4. Nicholas Cage',
-    answer : 4,
+    answer : '4. Nicholas Cage',
     },
     {
     name : 'ser',
@@ -116,7 +116,7 @@ const array = [
     choice2 : '2. Isha Price',
     choice3 : '3. Venus Williams',
     choice4 : '4. Lyndrea Price',
-    answer : 1,
+    answer : '1. Serena Williams',
     },
 ]
 
@@ -148,14 +148,25 @@ function beginGame() {
         q3.innerHTML = array[start].choice3;
         q4.innerHTML = array[start].choice4;
 
-    }
+    
     
     let choices = document.getElementsByClassName("quiz-button")
     
     for (let i = 0; i < choices.length; i++) {
         choices[i].addEventListener('click', (event)=> {
-            alert("You just clicked")
+            let selection = event.target
+            let answer = selection.innerText
+            let correctAnswer = array[start].answer
+
+            if (answer === correctAnswer) {
+                alert("Correct!")
+            } else {
+                alert("incorrect")
+            }
+                        
+            
         })
+    }
     }
 }
 
