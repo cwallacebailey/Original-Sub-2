@@ -4,14 +4,31 @@ function focus() {
     document.getElementById("username").focus();
   }
 
+// Opens instruction box on being clicked
+
 function instructions() {
     let instructions = document.getElementById("instructionsBox")
     instructions.setAttribute("style", "display: block")
 }
 
+// Closes instruction box on being clicked
+
 function instructionsGone() {
     let instructions = document.getElementById("instructionsBox")
     instructions.setAttribute("style", "display: none")
+}
+
+function saveUsername() {
+    let usernameSave = []
+    let username = document.getElementById("username").value
+
+    if (username.length <= 2) {
+        alert("Please enter a username over 2 characters")
+    } else {
+    usernameSave.push(username)
+    alert(`Your username: ${usernameSave[0]}`)
+    window.location.href = "quiz-page.html";
+    }
 }
 
 // create array
@@ -104,6 +121,14 @@ const array = [
 ]
 
 function beginGame() {
+    let score = document.getElementById("score")
+    score.innerText = 0
+    let pointsToWin = document.getElementById("pointsToWin")
+    pointsToWin.innerText = 20
+    LoadQuestion()
+
+function LoadQuestion() {
+
     let picture1 = document.getElementById("pic1")
     let picture2 = document.getElementById("pic2")
     let picture3 = document.getElementById("pic3")
@@ -122,6 +147,8 @@ function beginGame() {
     q2.innerHTML = array[start].choice2;
     q3.innerHTML = array[start].choice3;
     q4.innerHTML = array[start].choice4;
+
+    }  
 }
 
 
