@@ -172,9 +172,7 @@ function beginGame() {
         setTimeout(function() {
             selection.style.backgroundColor = "#0c1a25"
             array.splice(start,1)
-            //progressBar.style.width = `${((7-multiple)/7)*100}%`
-            console.log(array)
-            console.log(score)
+            progressBar.style.width = `${((7-(array.length))/7)*100}%`
             LoadQuestion()
 
         }, 1000)
