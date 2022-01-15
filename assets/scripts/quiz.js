@@ -169,6 +169,8 @@ function beginGame() {
         
         setTimeout(function() {
             selection.style.backgroundColor = "#0c1a25"
+            array.splice(start)
+            console.log(array)
         }, 1000)
         })
     }
