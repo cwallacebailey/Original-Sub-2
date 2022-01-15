@@ -18,6 +18,8 @@ function instructionsGone() {
     instructions.setAttribute("style", "display: none")
 }
 
+// save username
+
 function saveUsername() {
     let usernameSave = []
     let username = document.getElementById("username").value
@@ -121,10 +123,12 @@ const array = [
 ]
 
 function beginGame() {
-    let score = document.getElementById("score")
-    score.innerText = 0
-    let pointsToWin = document.getElementById("pointsToWin")
-    pointsToWin.innerText = 20
+    let score = 0
+    let pointsToWin = 20
+    let setScore = document.getElementById("score")
+    setScore.innerText = score
+    let points = document.getElementById("pointsToWin")
+    points.innerText = pointsToWin
     LoadQuestion()
 
     function LoadQuestion() {
@@ -148,23 +152,24 @@ function beginGame() {
         q3.innerHTML = array[start].choice3;
         q4.innerHTML = array[start].choice4;
 
-    
-    
     let choices = document.getElementsByClassName("quiz-button")
     
     for (let i = 0; i < choices.length; i++) {
         choices[i].addEventListener('click', (event)=> {
             let selection = event.target
             let answer = selection.innerText
-            let correctAnswer = array[start].answer
+            let correctAnswer = array[start].answer            
 
             if (answer === correctAnswer) {
-                alert("Correct!")
+                selection.style.backgroundColor = "green"
+                score = score + pointsToWin
             } else {
-                alert("incorrect")
+                selection.style.backgroundColor = "red"
             }
-                        
-            
+        
+        setTimeout(function() {
+            selection.style.backgroundColor = "#0c1a25"
+        }, 1000)
         })
     }
     }
