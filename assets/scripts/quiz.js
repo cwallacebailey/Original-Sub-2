@@ -129,6 +129,7 @@ function beginGame() {
     setScore.innerText = score
     let points = document.getElementById("pointsToWin")
     points.innerText = pointsToWin
+    let multiple = array.length
     LoadQuestion()
 
     function LoadQuestion() {
@@ -141,7 +142,7 @@ function beginGame() {
         let q2 = document.getElementById("q2")
         let q3 = document.getElementById("q3")
         let q4 = document.getElementById("q4")
-        let start = Math.floor(Math.random()*7)
+        let start = Math.floor(Math.random()*multiple)
         
         picture1.src = array[start].img1;
         picture2.src = array[start].img2;
@@ -163,14 +164,18 @@ function beginGame() {
             if (answer === correctAnswer) {
                 selection.style.backgroundColor = "green"
                 score = score + pointsToWin
+                setScore.innerText = score
             } else {
                 selection.style.backgroundColor = "red"
             }
         
         setTimeout(function() {
             selection.style.backgroundColor = "#0c1a25"
-            array.splice(start)
+            array.splice(start,1)
             console.log(array)
+            console.log(score)
+            LoadQuestion()
+
         }, 1000)
         })
     }
