@@ -127,28 +127,36 @@ function beginGame() {
     pointsToWin.innerText = 20
     LoadQuestion()
 
-function LoadQuestion() {
+    function LoadQuestion() {
 
-    let picture1 = document.getElementById("pic1")
-    let picture2 = document.getElementById("pic2")
-    let picture3 = document.getElementById("pic3")
-    let picture4 = document.getElementById("pic4")
-    let q1 = document.getElementById("q1")
-    let q2 = document.getElementById("q2")
-    let q3 = document.getElementById("q3")
-    let q4 = document.getElementById("q4")
-    let start = Math.floor(Math.random()*7)
+        let picture1 = document.getElementById("pic1")
+        let picture2 = document.getElementById("pic2")
+        let picture3 = document.getElementById("pic3")
+        let picture4 = document.getElementById("pic4")
+        let q1 = document.getElementById("q1")
+        let q2 = document.getElementById("q2")
+        let q3 = document.getElementById("q3")
+        let q4 = document.getElementById("q4")
+        let start = Math.floor(Math.random()*7)
+        
+        picture1.src = array[start].img1;
+        picture2.src = array[start].img2;
+        picture3.src = array[start].img3;
+        picture4.src = array[start].img4;
+        q1.innerHTML = array[start].choice1;
+        q2.innerHTML = array[start].choice2;
+        q3.innerHTML = array[start].choice3;
+        q4.innerHTML = array[start].choice4;
+
+    }
     
-    picture1.src = array[start].img1;
-    picture2.src = array[start].img2;
-    picture3.src = array[start].img3;
-    picture4.src = array[start].img4;
-    q1.innerHTML = array[start].choice1;
-    q2.innerHTML = array[start].choice2;
-    q3.innerHTML = array[start].choice3;
-    q4.innerHTML = array[start].choice4;
-
-    }  
+    let choices = document.getElementsByClassName("quiz-button")
+    
+    for (let i = 0; i < choices.length; i++) {
+        choices[i].addEventListener('click', (event)=> {
+            alert("You just clicked")
+        })
+    }
 }
 
 
