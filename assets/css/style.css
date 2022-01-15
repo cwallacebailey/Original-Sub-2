@@ -134,6 +134,7 @@ h1 {
     width: 400px;
     background-color: #0c1a25;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .quiz-button:hover {
