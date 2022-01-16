@@ -123,7 +123,6 @@ const array = [
 
 function beginGame() {
     let score = 0
-    let start = 0
     let pointsToWin = 20
     let questions = 0
     let progressBar = document.getElementById("progressBar")
@@ -132,7 +131,6 @@ function beginGame() {
     let points = document.getElementById("pointsToWin")
     points.innerText = pointsToWin
     LoadQuestion()
-
 
     function LoadQuestion() {
         
@@ -144,8 +142,8 @@ function beginGame() {
         let q2 = document.getElementById("q2")
         let q3 = document.getElementById("q3")
         let q4 = document.getElementById("q4")
-        //let multiple = array.length
-        //Math.floor(Math.random()*multiple)
+        let multiple = array.length
+        let start = Math.floor(Math.random()*multiple)
         
         picture1.src = array[start].img1;
         picture2.src = array[start].img2;
@@ -164,6 +162,7 @@ function beginGame() {
         choices[i].addEventListener('click', (event)=> {
             let selection = event.target
             let answer = selection.innerText
+            let index = selection.array.answer
             let correctAnswer = array[start].answer            
 
             if (answer === correctAnswer) {
@@ -176,10 +175,15 @@ function beginGame() {
         
     setTimeout(function() {
         selection.style.backgroundColor = "#0c1a25"
-        array.splice(0,1)
+        array.splice(start,1)
         questions += 1
         progressBar.style.width = `${((7-(array.length))/7)*100}%`
-        LoadQuestion()
+
+        if (questions === 7) {
+            window.location.href = "quiz-end.html"
+            document.getElementById("finalScore").value = 100 
+        } else { LoadQuestion()
+        }
     }, 1000)
     })
     }

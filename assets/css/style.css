@@ -154,7 +154,7 @@ h1 {
 
 /* end of quiz page */
 
-#score, #pointsToWin {
+#score, #pointsToWinm, #finalScore {
     font-size: 3rem;
 }
 
