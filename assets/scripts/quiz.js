@@ -49,10 +49,10 @@ const array = [
     },
     {
     name : 'dan',
-    img1 : 'assets/images/dan1.jpg',
-    img2 : 'assets/images/dan2.jpg',
-    img3 : 'assets/images/dan3.jpg',
-    img4 : 'assets/images/dan4.jpg',
+    img1 : 'assets/images/dan1.png',
+    img2 : 'assets/images/dan2.png',
+    img3 : 'assets/images/dan3.png',
+    img4 : 'assets/images/dan4.png',
     choice1 : '1. Dany trejo',
     choice2 : '2. Cheech Marin',
     choice3 : '3. Tom Savini',
@@ -109,10 +109,10 @@ const array = [
     },
     {
     name : 'ser',
-    img1 : 'assets/images/ser1.jpg',
-    img2 : 'assets/images/ser2.jpg',
-    img3 : 'assets/images/ser3.jpg',
-    img4 : 'assets/images/ser4.jpg',
+    img1 : 'assets/images/ser1.png',
+    img2 : 'assets/images/ser2.png',
+    img3 : 'assets/images/ser3.png',
+    img4 : 'assets/images/ser4.png',
     choice1 : '1. Serena Williams',
     choice2 : '2. Isha Price',
     choice3 : '3. Venus Williams',
@@ -124,16 +124,16 @@ const array = [
 function beginGame() {
     let score = 0
     let pointsToWin = 20
+    let questions = 0
     let progressBar = document.getElementById("progressBar")
     let setScore = document.getElementById("score")
     setScore.innerText = score
     let points = document.getElementById("pointsToWin")
     points.innerText = pointsToWin
-    let multiple = array.length
     LoadQuestion()
 
     function LoadQuestion() {
-
+        
         let picture1 = document.getElementById("pic1")
         let picture2 = document.getElementById("pic2")
         let picture3 = document.getElementById("pic3")
@@ -142,7 +142,8 @@ function beginGame() {
         let q2 = document.getElementById("q2")
         let q3 = document.getElementById("q3")
         let q4 = document.getElementById("q4")
-        let start = Math.floor(Math.random()*multiple)
+        let multiple = array.length
+        let start = 0 //Math.floor(Math.random()*multiple)
         
         picture1.src = array[start].img1;
         picture2.src = array[start].img2;
@@ -171,10 +172,13 @@ function beginGame() {
         
         setTimeout(function() {
             selection.style.backgroundColor = "#0c1a25"
-            array.splice(start,1)
+            array.splice(0,1)
+            questions += 1
+            let multiple = array.length
             progressBar.style.width = `${((7-(array.length))/7)*100}%`
+            console.log(array)
+            console.log(questions)
             LoadQuestion()
-
         }, 1000)
         })
     }
