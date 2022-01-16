@@ -123,6 +123,7 @@ const array = [
 
 function beginGame() {
     let score = 0
+    let start = 0
     let pointsToWin = 20
     let questions = 0
     let progressBar = document.getElementById("progressBar")
@@ -131,6 +132,7 @@ function beginGame() {
     let points = document.getElementById("pointsToWin")
     points.innerText = pointsToWin
     LoadQuestion()
+
 
     function LoadQuestion() {
         
@@ -142,8 +144,8 @@ function beginGame() {
         let q2 = document.getElementById("q2")
         let q3 = document.getElementById("q3")
         let q4 = document.getElementById("q4")
-        let multiple = array.length
-        let start = 0 //Math.floor(Math.random()*multiple)
+        //let multiple = array.length
+        //Math.floor(Math.random()*multiple)
         
         picture1.src = array[start].img1;
         picture2.src = array[start].img2;
@@ -153,9 +155,11 @@ function beginGame() {
         q2.innerHTML = array[start].choice2;
         q3.innerHTML = array[start].choice3;
         q4.innerHTML = array[start].choice4;
+    }
+
+    //check answer
 
     let choices = document.getElementsByClassName("quiz-button")
-    
     for (let i = 0; i < choices.length; i++) {
         choices[i].addEventListener('click', (event)=> {
             let selection = event.target
@@ -170,20 +174,17 @@ function beginGame() {
                 selection.style.backgroundColor = "red"
             }
         
-        setTimeout(function() {
-            selection.style.backgroundColor = "#0c1a25"
-            array.splice(0,1)
-            questions += 1
-            let multiple = array.length
-            progressBar.style.width = `${((7-(array.length))/7)*100}%`
-            console.log(array)
-            console.log(questions)
-            LoadQuestion()
-        }, 1000)
-        })
+    setTimeout(function() {
+        selection.style.backgroundColor = "#0c1a25"
+        array.splice(0,1)
+        questions += 1
+        progressBar.style.width = `${((7-(array.length))/7)*100}%`
+        LoadQuestion()
+    }, 1000)
+    })
     }
     }
-}
+
 
 
 
