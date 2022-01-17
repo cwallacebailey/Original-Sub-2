@@ -143,7 +143,7 @@ function beginGame() {
         let q3 = document.getElementById("q3")
         let q4 = document.getElementById("q4")
         let multiple = array.length
-        let start = Math.floor(Math.random()*multiple)
+        globalThis.start = Math.floor(Math.random()*multiple)
         
         picture1.src = array[start].img1;
         picture2.src = array[start].img2;
@@ -162,8 +162,8 @@ function beginGame() {
         choices[i].addEventListener('click', (event)=> {
             let selection = event.target
             let answer = selection.innerText
-            let index = selection.array.answer
-            let correctAnswer = array[start].answer            
+            let correctAnswer = array[start].answer
+            
 
             if (answer === correctAnswer) {
                 selection.style.backgroundColor = "green"
@@ -181,7 +181,6 @@ function beginGame() {
 
         if (questions === 7) {
             window.location.href = "quiz-end.html"
-            document.getElementById("finalScore").value = 100 
         } else { LoadQuestion()
         }
     }, 1000)
@@ -189,31 +188,7 @@ function beginGame() {
     }
     }
 
-
-
-
-
-/*
-
-// quiz page
-
-//function getImageQuestion() //would this include the question? Need to build array
-
-//function flipImage() // this will flip the image the user clicks and reduce the incremental score
-
-//function checkAnswer() // this will check if the answer is correct and add score if so. It will also call get image question after a set amount of time. 
-
-// if username is less than 3 characters do not allow the user to save DOES NOT YET WORK
-
-function manage(text) {
-    let save = getElementById("save");
-    if (text.value != '') {
-        save.disabled = false;
-        save.style.cursor = "auto";
-    } else {
-        save.disabled = false;
-        save.style.cursor = "disabled";
+    function finalScore() {
+        document.getElementById("finalScore").innerText = score
+        console.log(score)
     }
-}
-
-*/
