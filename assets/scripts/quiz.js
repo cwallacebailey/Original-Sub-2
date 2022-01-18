@@ -145,10 +145,10 @@ function beginGame() {
         let multiple = array.length
         globalThis.start = Math.floor(Math.random()*multiple)
         
-        picture1.src = array[start].img1;
-        picture2.src = array[start].img2;
-        picture3.src = array[start].img3;
-        picture4.src = array[start].img4;
+        picture1.src = 'assets/images/Click1.png';
+        picture2.src = 'assets/images/Click1.png';
+        picture3.src = 'assets/images/Click1.png';
+        picture4.src = 'assets/images/Click1.png';
         q1.innerHTML = array[start].choice1;
         q2.innerHTML = array[start].choice2;
         q3.innerHTML = array[start].choice3;
@@ -186,15 +186,25 @@ function beginGame() {
                 }, 1000)
             })
         }
-}
+    }
 
-function flipImage() {
-    let imageSelect = document.getElementsByClassName("picture-item")
-    for (let i = 0; i < imageSelect.length; i++) {
-        imageSelect[i].addEventListener('click', (event)=> {
-            event.target.setAttribute('src', array[start].img3)
-        })
-    }}
+    function flipImage() {
+        let imageSelect = document.getElementsByClassName("picture-item")
+        for (let i = 0; i < imageSelect.length; i++) {
+            imageSelect[i].addEventListener('click', (event)=> {
+                if (event.target.id === "pic1") {
+                    event.target.setAttribute('src', array[start].img1)
+                } else if (event.target.id === "pic2") {
+                    event.target.setAttribute('src', array[start].img2)
+                } else if (event.target.id === "pic3") {
+                    event.target.setAttribute('src', array[start].img3)
+                } else {
+                    event.target.setAttribute('src', array[start].img4)
+                    event.target.removeEventListener('click',flipImage())
+                }
+            })
+        }   
+    }
 
 function finalScore() {
     document.getElementById("finalScore").innerText = score
