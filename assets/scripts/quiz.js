@@ -123,17 +123,15 @@ const array = [
 
 function beginGame() {
     let score = 0
-    let pointsToWin = 20
+    let pointsToWin = 40
     let questions = 0
+    let points = document.getElementById("pointsToWin")
     let progressBar = document.getElementById("progressBar")
     let setScore = document.getElementById("score")
     setScore.innerText = score
-    let points = document.getElementById("pointsToWin")
-    points.innerText = pointsToWin
-        
     LoadQuestion()
 
-    function LoadQuestion() {  
+    function LoadQuestion() {
         let picture1 = document.getElementById("pic1")
         let picture2 = document.getElementById("pic2")
         let picture3 = document.getElementById("pic3")
@@ -155,6 +153,31 @@ function beginGame() {
         q4.innerHTML = array[start].choice4;
     }
 
+    //flip images
+
+    let imageSelect = document.getElementsByClassName("picture-item")
+        for (let i = 0; i < imageSelect.length; i++) {
+            imageSelect[i].addEventListener('click', (event)=> {
+                if (event.target.id === "pic1") {
+                    event.target.setAttribute('src', array[start].img1)
+                    pointsToWin = pointsToWin / 2
+                    points.innerText = pointsToWin
+                } else if (event.target.id === "pic2") {
+                    event.target.setAttribute('src', array[start].img2)
+                    pointsToWin = pointsToWin / 2
+                    points.innerText = pointsToWin
+                } else if (event.target.id === "pic3") {
+                    event.target.setAttribute('src', array[start].img3)
+                    pointsToWin = pointsToWin / 2
+                    points.innerText = pointsToWin
+                } else {
+                    event.target.setAttribute('src', array[start].img4)
+                    pointsToWin = pointsToWin / 2
+                    points.innerText = pointsToWin
+                }
+            })
+        }   
+
     //check answer
 
         let choices = document.getElementsByClassName("quiz-button")
@@ -164,13 +187,16 @@ function beginGame() {
                 let answer = selection.innerText
                 let correctAnswer = array[start].answer
                 
-
                 if (answer === correctAnswer) {
                     selection.style.backgroundColor = "green"
                     score = score + pointsToWin
                     setScore.innerText = score
+                    pointsToWin = 40
+                    points.innerText = pointsToWin
                 } else {
                     selection.style.backgroundColor = "red"
+                    pointsToWin = 40
+                    points.innerText = pointsToWin
                 }
             
                 setTimeout(function() {
@@ -186,24 +212,6 @@ function beginGame() {
                 }, 1000)
             })
         }
-    }
-
-    function flipImage() {
-        let imageSelect = document.getElementsByClassName("picture-item")
-        for (let i = 0; i < imageSelect.length; i++) {
-            imageSelect[i].addEventListener('click', (event)=> {
-                if (event.target.id === "pic1") {
-                    event.target.setAttribute('src', array[start].img1)
-                } else if (event.target.id === "pic2") {
-                    event.target.setAttribute('src', array[start].img2)
-                } else if (event.target.id === "pic3") {
-                    event.target.setAttribute('src', array[start].img3)
-                } else {
-                    event.target.setAttribute('src', array[start].img4)
-                    event.target.removeEventListener('click',flipImage())
-                }
-            })
-        }   
     }
 
 function finalScore() {
