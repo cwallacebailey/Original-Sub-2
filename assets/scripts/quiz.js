@@ -130,10 +130,10 @@ function beginGame() {
     setScore.innerText = score
     let points = document.getElementById("pointsToWin")
     points.innerText = pointsToWin
+        
     LoadQuestion()
 
-    function LoadQuestion() {
-        
+    function LoadQuestion() {  
         let picture1 = document.getElementById("pic1")
         let picture2 = document.getElementById("pic2")
         let picture3 = document.getElementById("pic3")
@@ -157,38 +157,46 @@ function beginGame() {
 
     //check answer
 
-    let choices = document.getElementsByClassName("quiz-button")
-    for (let i = 0; i < choices.length; i++) {
-        choices[i].addEventListener('click', (event)=> {
-            let selection = event.target
-            let answer = selection.innerText
-            let correctAnswer = array[start].answer
+        let choices = document.getElementsByClassName("quiz-button")
+        for (let i = 0; i < choices.length; i++) {
+            choices[i].addEventListener('click', (event)=> {
+                let selection = event.target
+                let answer = selection.innerText
+                let correctAnswer = array[start].answer
+                
+
+                if (answer === correctAnswer) {
+                    selection.style.backgroundColor = "green"
+                    score = score + pointsToWin
+                    setScore.innerText = score
+                } else {
+                    selection.style.backgroundColor = "red"
+                }
             
+                setTimeout(function() {
+                    selection.style.backgroundColor = "#0c1a25"
+                    array.splice(start,1)
+                    questions += 1
+                    progressBar.style.width = `${((7-(array.length))/7)*100}%`
 
-            if (answer === correctAnswer) {
-                selection.style.backgroundColor = "green"
-                score = score + pointsToWin
-                setScore.innerText = score
-            } else {
-                selection.style.backgroundColor = "red"
-            }
-        
-    setTimeout(function() {
-        selection.style.backgroundColor = "#0c1a25"
-        array.splice(start,1)
-        questions += 1
-        progressBar.style.width = `${((7-(array.length))/7)*100}%`
-
-        if (questions === 7) {
-            window.location.href = "quiz-end.html"
-        } else { LoadQuestion()
+                    if (questions === 7) {
+                        window.location.href = "quiz-end.html"
+                    } else { LoadQuestion()
+                    }
+                }, 1000)
+            })
         }
-    }, 1000)
-    })
-    }
-    }
+}
 
-    function finalScore() {
-        document.getElementById("finalScore").innerText = score
-        console.log(score)
-    }
+function flipImage() {
+    let imageSelect = document.getElementsByClassName("picture-item")
+    for (let i = 0; i < imageSelect.length; i++) {
+        imageSelect[i].addEventListener('click', (event)=> {
+            event.target.setAttribute('src', array[start].img3)
+        })
+    }}
+
+function finalScore() {
+    document.getElementById("finalScore").innerText = score
+    console.log(score)
+}
