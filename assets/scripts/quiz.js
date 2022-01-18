@@ -129,6 +129,7 @@ function beginGame() {
     let progressBar = document.getElementById("progressBar")
     let setScore = document.getElementById("score")
     setScore.innerText = score
+    points.innerText = pointsToWin
     LoadQuestion()
 
     function LoadQuestion() {
@@ -160,7 +161,7 @@ function beginGame() {
             imageSelect[i].addEventListener('click', (event)=> {
                 if (event.target.id === "pic1") {
                     event.target.setAttribute('src', array[start].img1)
-                    pointsToWin = pointsToWin / 2
+                    pointsToWin = pointsToWin / 2 
                     points.innerText = pointsToWin
                 } else if (event.target.id === "pic2") {
                     event.target.setAttribute('src', array[start].img2)
@@ -207,14 +208,11 @@ function beginGame() {
 
                     if (questions === 7) {
                         window.location.href = "quiz-end.html"
+                        document.getElementById("finalScore").innerText = score
+                        console.log(help)
                     } else { LoadQuestion()
                     }
                 }, 1000)
             })
         }
     }
-
-function finalScore() {
-    document.getElementById("finalScore").innerText = score
-    console.log(score)
-}
