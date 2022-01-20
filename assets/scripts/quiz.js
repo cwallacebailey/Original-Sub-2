@@ -280,8 +280,10 @@ function beginGame() {
 function setScore() {
 let score = localStorage.getItem('score')
 document.getElementById("finalScore").innerText = score
+
 let username = localStorage.getItem('username')
 document.getElementById("name").innerHTML = `${username}, your final score is:`
+
 if (score > 100) {
     document.getElementById("rank").innerText = "Wow, you really know your celebs"
 } else if (score < 100 && score > 50) {
@@ -297,4 +299,12 @@ function highScores() {
     highScores.push(score)
     highScores.sort
     console.log(highScores)
+    let li = '<ol>'
+    highScores.forEach(function(listMaker) {
+        li += '<li>'+listMaker+'</li>'
+    })
+
+    li += '</ol>'
+
+    document.getElementById("leaderboard-list").innerHTML = li;
 }
