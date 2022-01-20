@@ -52,11 +52,11 @@ const array = [
     img2 : 'assets/images/dan2.png',
     img3 : 'assets/images/dan3.png',
     img4 : 'assets/images/dan4.png',
-    choice1 : '1. Dany trejo',
+    choice1 : '1. Dany Trejo',
     choice2 : '2. Cheech Marin',
     choice3 : '3. Tom Savini',
     choice4 : '4. John P. Fedele',
-    answer : '1. Dany trejo',
+    answer : '1. Dany Trejo',
     },
     {
     name : 'eli',
@@ -289,16 +289,18 @@ if (score > 100) {
 } else if (score < 100 && score > 50) {
     document.getElementById("rank").innerText = "Not bad. You recognised someone..."
 } else {
-    document.getElementById("rank").innerText = "It's ok, Celebs are not your thing"
+    document.getElementById("rank").innerText = "It's ok, celebs are not your thing"
 }
 }
 
 function highScores() {
-    highScores = []
+    let highScores = []
     score = localStorage.getItem('score')
     highScores.push(score)
     highScores.sort
+    localStorage.setItem('highScores',highScores)
     console.log(highScores)
+
     let li = '<ol>'
     highScores.forEach(function(listMaker) {
         li += '<li>'+listMaker+'</li>'

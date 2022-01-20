@@ -183,19 +183,24 @@ h1 {
     font-size: 2.5rem;
 }
 
+@media screen and (max-width: 800px) {
+    h1 {
+        margin-bottom: 0rem;
+    }
+
+    .top-row {
+        padding-bottom: 1rem;
+    }
+}
+
 @media screen and (max-width: 600px) {
 
     h1 {
         font-size: 3rem;
-        margin-bottom: 0rem;
     }
 
     .button {
         padding: 1.5rem;
-    }
-
-    .contain {
-        justify-content: center;
     }
 
     .quiz-button {
@@ -204,6 +209,36 @@ h1 {
         padding: 2rem;
         width: 350px;
     }
+}
 
+@media screen and (max-width: 550px) {
+    
+    h1 {
+        font-size: 2.5rem;
+    }
 
+    .top-row {
+        padding: 0.5rem;
+    }
+
+    #progress {
+        height: 2rem;
+    }
+
+    .picture-item {
+        width: 390px
+    }
+
+    .quiz-button {
+        padding: 1rem;
+        margin-left: 20px;
+    }
+
+    .quiz-end-text {
+        font-size: 3rem;
+    }
+
+    .break {
+        height: 4px;
+    }
 }
