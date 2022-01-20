@@ -159,9 +159,9 @@ h1 {
 
 /* end of quiz page */
 
-#finalScore, #name {
-    font-size: 5rem;
-    padding-bottom: 1rem;
+.quiz-end-text {
+    font-size: 4rem;
+    padding-bottom: 0.5rem;
 }
 
 /* leaderboard */

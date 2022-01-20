@@ -265,7 +265,7 @@ function beginGame() {
                     selection.style.backgroundColor = "#0c1a25"
                     array.splice(start,1)
                     questions += 1
-                    progressBar.style.width = `${((questions)/7)*100}%`
+                    progressBar.style.width = `${((questions)/5)*100}%`
 
                     if (questions === 5) {
                         localStorage.setItem('score', score)
@@ -277,10 +277,18 @@ function beginGame() {
         }
     }
 
-function setScore() {    
-document.getElementById("finalScore").innerText = localStorage.getItem('score')
+function setScore() {
+let score = localStorage.getItem('score')
+document.getElementById("finalScore").innerText = score
 let username = localStorage.getItem('username')
 document.getElementById("name").innerHTML = `${username}, your final score is:`
+if (score > 100) {
+    document.getElementById("rank").innerText = "Wow, you really know your celebs"
+} else if (score < 100 && score > 50) {
+    document.getElementById("rank").innerText = "Not bad. You recognised someone..."
+} else {
+    document.getElementById("rank").innerText = "It's ok, Celebs are not your thing"
+}
 }
 
 function highScores() {
