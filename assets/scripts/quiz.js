@@ -20,8 +20,6 @@ function instructionsGone() {
 
 // save username
 
-
-
 function saveUsername() {
     let username = document.getElementById("username").value
     
@@ -269,13 +267,18 @@ function beginGame() {
                     questions += 1
                     progressBar.style.width = `${((questions)/7)*100}%`
 
-                    if (questions === 7) {
+                    if (questions === 5) {
+                        localStorage.setItem('score', score)
                         window.location.href = "quiz-end.html"
-                        document.getElementById("finalScore").innerText = score
-                        console.log(help)
                     } else { LoadQuestion()
                     }
                 }, 1000)
             })
         }
     }
+
+function setScore() {    
+score = localStorage.getItem('score')
+console.log(localStorage.getItem('username'))
+document.getElementById("finalScore").innerText = score
+}
