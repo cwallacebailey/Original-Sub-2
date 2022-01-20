@@ -20,14 +20,15 @@ function instructionsGone() {
 
 // save username
 
-function saveUsername() {
-    let usernameSave = []
-    let username = document.getElementById("username").value
 
+
+function saveUsername() {
+    let username = document.getElementById("username").value
+    
     if (username.length <= 2) {
         alert("Please enter a username over 2 characters")
     } else {
-    usernameSave.push(username)
+    localStorage.setItem('username', username) 
     window.location.href = "quiz-page.html";
     }
 }
@@ -120,65 +121,65 @@ const array = [
     answer : '1. Serena Williams',
     },
     {
-        name : 'nat',
-        img1 : 'assets/images/nat1.png',
-        img2 : 'assets/images/nat2.png',
-        img3 : 'assets/images/nat3.png',
-        img4 : 'assets/images/nat4.png',
-        choice1 : '1. Serena Williams',
-        choice2 : '2. Nathalie Emmanuel',
-        choice3 : '3. Venus Williams',
-        choice4 : '4. Lyndrea Price',
-        answer : '2. Nathalie Emmanuel',
-        },
-        {
-        name : 'brad',
-        img1 : 'assets/images/brad1.png',
-        img2 : 'assets/images/brad2.png',
-        img3 : 'assets/images/brad3.png',
-        img4 : 'assets/images/brad4.png',
-        choice1 : '1. Brad Pitt',
-        choice2 : '2. Leonardo Dicaprio',
-        choice3 : '3. Willem Dafoe',
-        choice4 : '4. Matthew Perry',
-        answer : '1. Brad Pitt',
-        },
-        {
-        name : 'fran',
-        img1 : 'assets/images/fran1.png',
-        img2 : 'assets/images/fran2.png',
-        img3 : 'assets/images/fran3.png',
-        img4 : 'assets/images/fran4.png',
-        choice1 : '1. Brendan Gleeson',
-        choice2 : '2. Billy Connolly',
-        choice3 : '3. Frankie Boyle',
-        choice4 : '4. Sean Bean',
-        answer : '3. Frankie Boyle',
-        },
-        {
-        name : 'jo',
-        img1 : 'assets/images/jo1.png',
-        img2 : 'assets/images/jo2.png',
-        img3 : 'assets/images/jo3.png',
-        img4 : 'assets/images/jo4.png',
-        choice1 : '1. Ann Widdecombe',
-        choice2 : '2. Eliza Bourke',
-        choice3 : '3. Sara Millican',
-        choice4 : '4. Jo Brand',
-        answer : '4. Jo Brand',
-        },
-        {
-        name : 'wes',
-        img1 : 'assets/images/wes1.png',
-        img2 : 'assets/images/wes2.png',
-        img3 : 'assets/images/wes3.png',
-        img4 : 'assets/images/wes4.png',
-        choice1 : '1. Wesley Snipes',
-        choice2 : '2. Grand L. Bush',
-        choice3 : '3. Danny Glover',
-        choice4 : '4. Damon Hines',
-        answer : '1. Wesley Snipes',
-        },
+    name : 'nat',
+    img1 : 'assets/images/nat1.png',
+    img2 : 'assets/images/nat2.png',
+    img3 : 'assets/images/nat3.png',
+    img4 : 'assets/images/nat4.png',
+    choice1 : '1. Serena Williams',
+    choice2 : '2. Nathalie Emmanuel',
+    choice3 : '3. Venus Williams',
+    choice4 : '4. Lyndrea Price',
+    answer : '2. Nathalie Emmanuel',
+    },
+    {
+    name : 'brad',
+    img1 : 'assets/images/brad1.png',
+    img2 : 'assets/images/brad2.png',
+    img3 : 'assets/images/brad3.png',
+    img4 : 'assets/images/brad4.png',
+    choice1 : '1. Brad Pitt',
+    choice2 : '2. Leonardo Dicaprio',
+    choice3 : '3. Willem Dafoe',
+    choice4 : '4. Matthew Perry',
+    answer : '1. Brad Pitt',
+    },
+    {
+    name : 'fran',
+    img1 : 'assets/images/fran1.png',
+    img2 : 'assets/images/fran2.png',
+    img3 : 'assets/images/fran3.png',
+    img4 : 'assets/images/fran4.png',
+    choice1 : '1. Brendan Gleeson',
+    choice2 : '2. Billy Connolly',
+    choice3 : '3. Frankie Boyle',
+    choice4 : '4. Sean Bean',
+    answer : '3. Frankie Boyle',
+    },
+    {
+    name : 'jo',
+    img1 : 'assets/images/jo1.png',
+    img2 : 'assets/images/jo2.png',
+    img3 : 'assets/images/jo3.png',
+    img4 : 'assets/images/jo4.png',
+    choice1 : '1. Ann Widdecombe',
+    choice2 : '2. Eliza Bourke',
+    choice3 : '3. Sara Millican',
+    choice4 : '4. Jo Brand',
+    answer : '4. Jo Brand',
+    },
+    {
+    name : 'wes',
+    img1 : 'assets/images/wes1.png',
+    img2 : 'assets/images/wes2.png',
+    img3 : 'assets/images/wes3.png',
+    img4 : 'assets/images/wes4.png',
+    choice1 : '1. Wesley Snipes',
+    choice2 : '2. Grand L. Bush',
+    choice3 : '3. Danny Glover',
+    choice4 : '4. Damon Hines',
+    answer : '1. Wesley Snipes',
+    },
     ]
 
 
@@ -191,6 +192,7 @@ function beginGame() {
     let setScore = document.getElementById("score")
     setScore.innerText = score
     points.innerText = pointsToWin
+
     LoadQuestion()
 
     function LoadQuestion() {
