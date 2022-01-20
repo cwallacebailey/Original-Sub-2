@@ -205,6 +205,10 @@ function beginGame() {
         let multiple = array.length
         globalThis.start = Math.floor(Math.random()*multiple)
         
+        picture1.src = 'assets/images/click1.png';
+        picture2.src = 'assets/images/click2.png';
+        picture3.src = 'assets/images/click3.png';
+        picture4.src = 'assets/images/click4.png';
         q1.innerHTML = array[start].choice1;
         q2.innerHTML = array[start].choice2;
         q3.innerHTML = array[start].choice3;
@@ -274,16 +278,15 @@ function beginGame() {
     }
 
 function setScore() {    
-score = localStorage.getItem('score')
-console.log(localStorage.getItem('username'))
-document.getElementById("finalScore").innerText = score
+document.getElementById("finalScore").innerText = localStorage.getItem('score')
+let username = localStorage.getItem('username')
+document.getElementById("name").innerHTML = `${username}, your final score is:`
 }
 
 function highScores() {
     highScores = []
     score = localStorage.getItem('score')
     highScores.push(score)
-    leaderboard
     highScores.sort
     console.log(highScores)
 }

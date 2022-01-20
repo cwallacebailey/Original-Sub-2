@@ -159,7 +159,7 @@ h1 {
 
 /* end of quiz page */
 
-#finalScore {
+#finalScore, #name {
     font-size: 5rem;
     padding-bottom: 1rem;
 }
