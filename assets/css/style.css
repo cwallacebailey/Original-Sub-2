@@ -153,10 +153,15 @@ h1 {
     font-size: 1rem;
 }
 
+#score, #pointsToWin {
+    font-size: 3rem;
+}
+
 /* end of quiz page */
 
-#score, #pointsToWin, #finalScore {
-    font-size: 3rem;
+#finalScore {
+    font-size: 5rem;
+    padding-bottom: 1rem;
 }
 
 /* leaderboard */

@@ -282,3 +282,10 @@ score = localStorage.getItem('score')
 console.log(localStorage.getItem('username'))
 document.getElementById("finalScore").innerText = score
 }
+
+function highScores() {
+    highScores = []
+    score = localStorage.getItem('score')
+    highScores.push(score)
+    highScores.sort
+}
