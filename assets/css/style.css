@@ -221,12 +221,13 @@ h1 {
         padding: 0.5rem;
     }
 
-    #progress {
-        height: 2rem;
+    #progress, #progressBarm, #progress-title {
+        display: none;
     }
 
     .picture-item {
-        width: 390px
+        width: 390px;
+        margin-left: 20px;
     }
 
     .quiz-button {
@@ -241,4 +242,12 @@ h1 {
     .break {
         height: 4px;
     }
+}
+
+@media screen and (max-width: 400px) {
+    
+    .picture-item {
+        margin-left: 0px;
+    }
+    
 }
