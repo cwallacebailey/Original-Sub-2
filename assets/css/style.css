@@ -245,9 +245,22 @@ h1 {
 }
 
 @media screen and (max-width: 400px) {
+
+    h1 {
+        margin-left: 20px;
+    }
+
+    .top-row {
+        margin-left: 35px;
+    }
     
     .picture-item {
         margin-left: 0px;
+    }
+
+    .quiz-button {
+        margin-left: 50px;
+        width: 340px;
     }
     
 }
