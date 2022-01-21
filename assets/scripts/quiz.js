@@ -248,15 +248,18 @@ function beginGame() {
                 let selection = event.target
                 let answer = selection.innerText
                 let correctAnswer = array[start].answer
-                
+                let cheer = new Audio('assets/mp3/cheering.wav')
+                let sad = new Audio('assets/mp3/sad.wav')
                 if (answer === correctAnswer) {
                     selection.style.backgroundColor = "green"
+                    cheer.play()
                     score = score + pointsToWin
                     setScore.innerText = score
                     pointsToWin = 40
                     points.innerText = pointsToWin
                 } else {
                     selection.style.backgroundColor = "red"
+                    sad.play()
                     pointsToWin = 40
                     points.innerText = pointsToWin
                 }
