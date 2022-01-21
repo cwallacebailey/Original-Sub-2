@@ -31,6 +31,17 @@ function saveUsername() {
     }
 }
 
+// allow sound to be played or muted by clicking button
+
+function sound() {
+    let sound = document.getElementById("sound")
+    if (sound.innerHTML === '<i class="fas fa-volume-mute"></i>') {
+        sound.innerHTML = '<i class="fas fa-volume-up"></i>'
+    } else {
+        sound.innerHTML = '<i class="fas fa-volume-mute"></i>'
+    }
+}
+
 // create array
 
 const array = [
@@ -250,16 +261,22 @@ function beginGame() {
                 let correctAnswer = array[start].answer
                 let cheer = new Audio('assets/mp3/cheering.wav')
                 let sad = new Audio('assets/mp3/sad.wav')
+                let sound = document.getElementById("sound")
+
                 if (answer === correctAnswer) {
                     selection.style.backgroundColor = "green"
-                    cheer.play()
+                    if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
+                        cheer.play()
+                        }
                     score = score + pointsToWin
                     setScore.innerText = score
                     pointsToWin = 40
                     points.innerText = pointsToWin
                 } else {
                     selection.style.backgroundColor = "red"
-                    sad.play()
+                    if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
+                        sad.play()
+                        }
                     pointsToWin = 40
                     points.innerText = pointsToWin
                 }
@@ -313,3 +330,4 @@ function highScores() {
 
     document.getElementById("leaderboard-list").innerHTML = li;
 }
+

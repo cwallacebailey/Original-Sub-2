@@ -164,9 +164,10 @@ h1 {
     border-radius: 10px;
 }
 
-.fa-volume-mute {
+.fa-volume-mute, .fa-volume-up {
     background-color: #0c1a25;
     margin-bottom: 15px;
+    font-size: 2rem;
 }
 
 /* end of quiz page */
