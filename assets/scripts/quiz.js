@@ -1,36 +1,36 @@
 // focus on enter username box on opening index.html
 
 function focus() {
-    document.getElementById("username").focus()
+    document.getElementById("username").focus();
   }
 
 // Opens instruction box on being clicked
 
 function instructions() {
-    let instructionsBox = document.getElementById("instructionsBox")
-    instructionsBox.setAttribute("style", "display: block")
-    let instructions = document.getElementById("instructions")
-    instructions.setAttribute("style", "display: none")
+    let instructionsBox = document.getElementById("instructionsBox");
+    instructionsBox.setAttribute("style", "display: block");
+    let instructions = document.getElementById("instructions");
+    instructions.setAttribute("style", "display: none");
 }
 
 // Closes instruction box on being clicked
 
 function instructionsGone() {
-    let instructionsBox = document.getElementById("instructionsBox")
-    instructionsBox.setAttribute("style", "display: none")
-    let instructions = document.getElementById("instructions")
-    instructions.setAttribute("style", "display: block")
+    let instructionsBox = document.getElementById("instructionsBox");
+    instructionsBox.setAttribute("style", "display: none");
+    let instructions = document.getElementById("instructions");
+    instructions.setAttribute("style", "display: block");
 }
 
 // save username
 
 function saveUsername() {
-    let username = document.getElementById("username").value
+    let username = document.getElementById("username").value;
     
     if (username.length <= 2) {
-        alert("Please enter a username over 2 characters")
+        alert("Please enter a username over 2 characters");
     } else {
-    localStorage.setItem('username', username) 
+    localStorage.setItem('username', username);
     window.location.href = "quiz-page.html";
     }
 }
@@ -38,11 +38,11 @@ function saveUsername() {
 // allow sound to be played or muted by clicking button
 
 function sound() {
-    let sound = document.getElementById("sound")
+    let sound = document.getElementById("sound");
     if (sound.innerHTML === '<i class="fas fa-volume-mute"></i>') {
-        sound.innerHTML = '<i class="fas fa-volume-up"></i>'
+        sound.innerHTML = '<i class="fas fa-volume-up"></i>';
     } else {
-        sound.innerHTML = '<i class="fas fa-volume-mute"></i>'
+        sound.innerHTML = '<i class="fas fa-volume-mute"></i>';
     }
 }
 
@@ -193,32 +193,32 @@ const array = [
     choice4 : '4. Damon Hines',
     answer : '1. Wesley Snipes',
     },
-    ]
+    ];
 
 
 function beginGame() {
-    let score = 0
-    let pointsToWin = 40
-    let questions = 0
-    let points = document.getElementById("pointsToWin")
-    let progressBar = document.getElementById("progressBar")
-    let setScore = document.getElementById("score")
-    setScore.innerText = score
-    points.innerText = pointsToWin
+    let score = 0;
+    let pointsToWin = 40;
+    let questions = 0;
+    let points = document.getElementById("pointsToWin");
+    let progressBar = document.getElementById("progressBar");
+    let setScore = document.getElementById("score");
+    setScore.innerText = score;
+    points.innerText = pointsToWin;
 
-    LoadQuestion()
+    LoadQuestion();
 
     function LoadQuestion() {
-        let picture1 = document.getElementById("pic1")
-        let picture2 = document.getElementById("pic2")
-        let picture3 = document.getElementById("pic3")
-        let picture4 = document.getElementById("pic4")
-        let q1 = document.getElementById("q1")
-        let q2 = document.getElementById("q2")
-        let q3 = document.getElementById("q3")
-        let q4 = document.getElementById("q4")
-        let multiple = array.length
-        globalThis.randomNumber = Math.floor(Math.random()*multiple) // Global Variable
+        let picture1 = document.getElementById("pic1");
+        let picture2 = document.getElementById("pic2");
+        let picture3 = document.getElementById("pic3");
+        let picture4 = document.getElementById("pic4");
+        let q1 = document.getElementById("q1");
+        let q2 = document.getElementById("q2");
+        let q3 = document.getElementById("q3");
+        let q4 = document.getElementById("q4");
+        let multiple = array.length;
+        globalThis.randomNumber = Math.floor(Math.random()*multiple); // Global Variable
         
         picture1.src = 'assets/images/click1.png';
         picture2.src = 'assets/images/click2.png';
@@ -232,110 +232,108 @@ function beginGame() {
 
     // code to flip images 
 
-    let imageSelect = document.getElementsByClassName("picture-item")
+    let imageSelect = document.getElementsByClassName("picture-item");
         for (let i = 0; i < imageSelect.length; i++) {
             imageSelect[i].addEventListener('click', (event)=> {
                 if (event.target.id === "pic1") {
-                    event.target.setAttribute('src', array[randomNumber].img1)
-                    pointsToWin = pointsToWin / 2 
-                    points.innerText = pointsToWin
+                    event.target.setAttribute('src', array[randomNumber].img1);
+                    pointsToWin = pointsToWin / 2;
+                    points.innerText = pointsToWin;
                 } else if (event.target.id === "pic2") {
-                    event.target.setAttribute('src', array[randomNumber].img2)
-                    pointsToWin = pointsToWin / 2
-                    points.innerText = pointsToWin
+                    event.target.setAttribute('src', array[randomNumber].img2);
+                    pointsToWin = pointsToWin / 2;
+                    points.innerText = pointsToWin;
                 } else if (event.target.id === "pic3") {
-                    event.target.setAttribute('src', array[randomNumber].img3)
-                    pointsToWin = pointsToWin / 2
-                    points.innerText = pointsToWin
+                    event.target.setAttribute('src', array[randomNumber].img3);
+                    pointsToWin = pointsToWin / 2;
+                    points.innerText = pointsToWin;
                 } else {
-                    event.target.setAttribute('src', array[randomNumber].img4)
-                    pointsToWin = pointsToWin / 2
-                    points.innerText = pointsToWin
+                    event.target.setAttribute('src', array[randomNumber].img4);
+                    pointsToWin = pointsToWin / 2;
+                    points.innerText = pointsToWin;
                 }
-            })
+            });
         }   
 
     // code below checks the users answer, plays a sound if correct/ incorrect and loads a new question
 
-    let choices = document.getElementsByClassName("quiz-button")
+    let choices = document.getElementsByClassName("quiz-button");
     for (let i = 0; i < choices.length; i++) {
         choices[i].addEventListener('click', (event)=> {
-            let selection = event.target
-            let answer = selection.innerText
-            let correctAnswer = array[randomNumber].answer
-            let cheer = new Audio('assets/mp3/cheering.wav')
-            let sad = new Audio('assets/mp3/sad.wav')
-            let sound = document.getElementById("sound")
+            let selection = event.target;
+            let answer = selection.innerText;
+            let correctAnswer = array[randomNumber].answer;
+            let cheer = new Audio('assets/mp3/cheering.wav');
+            let sad = new Audio('assets/mp3/sad.wav');
+            let sound = document.getElementById("sound");
 
             if (answer === correctAnswer) {
-                selection.style.backgroundColor = "green"
+                selection.style.backgroundColor = "green";
                 if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
-                    cheer.play()
+                    cheer.play();
                     }
-                score = score + pointsToWin
-                setScore.innerText = score
-                pointsToWin = 40
-                points.innerText = pointsToWin
+                score = score + pointsToWin;
+                setScore.innerText = score;
+                pointsToWin = 40;
+                points.innerText = pointsToWin;
             } else {
-                selection.style.backgroundColor = "red"
+                selection.style.backgroundColor = "red";
                 if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
-                    sad.play()
+                    sad.play();
                     }
-                pointsToWin = 40
-                points.innerText = pointsToWin
+                pointsToWin = 40;
+                points.innerText = pointsToWin;
                 }
             
             setTimeout(function() {
-                selection.style.backgroundColor = "#0c1a25"
-                array.splice(randomNumber,1)
-                questions += 1
-                progressBar.style.width = `${((questions)/5)*100}%`
+                selection.style.backgroundColor = "#0c1a25";
+                array.splice(randomNumber,1);
+                questions += 1;
+                progressBar.style.width = `${((questions)/5)*100}%`;
 
                     if (questions === 5) {
-                        localStorage.setItem('score', score)
-                        window.location.href = "quiz-end.html"
-                    } else { LoadQuestion()
+                        localStorage.setItem('score', score);
+                        window.location.href = "quiz-end.html";
+                    } else { LoadQuestion();
                     }
-                }, 1000)
-            })
+                }, 1000);
+            });
         }
     }
 
 // sets quiz end page as the final score and gives the user their rating
 
 function setScore() {
-let score = Math.round(localStorage.getItem('score'))
-document.getElementById("finalScore").innerText = score
+let score = Math.round(localStorage.getItem('score'));
+document.getElementById("finalScore").innerText = score;
 
-let username = localStorage.getItem('username')
-document.getElementById("name").innerHTML = `${username}, your final score is:`
+let username = localStorage.getItem('username');
+document.getElementById("name").innerHTML = `${username}, your final score is:`;
 
 if (score >= 99) {
-    document.getElementById("rank").innerText = "Wow, you really know your celebs"
-} else if (score < 99 && score > 50) {
-    document.getElementById("rank").innerText = "Not bad. You recognised someone..."
+    document.getElementById("rank").innerText = "Wow, you really know your celebs";
+} else if (score < 99 && score >= 50) {
+    document.getElementById("rank").innerText = "Not bad. You recognised someone...";
 } else {
-    document.getElementById("rank").innerText = "It's ok, celebs are not your thing"
-    console.log(score)
+    document.getElementById("rank").innerText = "It's ok, celebs are not your thing";
 }
 }
 
 // sets the users score on the leaderboard
 
 function highScores() {
-    let highScores = []
-    score = localStorage.getItem('score')
-    highScores.push(score)
-    highScores.sort
-    localStorage.setItem('highScores',highScores)
-    console.log(highScores)
+    let highScores = [];
+    score = localStorage.getItem('score');
+    highScores.push(score);
+    highScores.sort;
+    localStorage.setItem('highScores',highScores);
 
-    let li = '<ol>'
+    let li = '<ol>';
     highScores.forEach(function(listMaker) {
-        li += '<li>'+listMaker+'</li>'
-    })
+        li += '<li>'+listMaker+'</li>';
+    });
 
-    li += '</ol>'
+    li += '</ol>';
 
     document.getElementById("leaderboard-list").innerHTML = li;
 }

@@ -33,15 +33,18 @@ The color scheme is uniform throughout the quiz using hex #234E70 for the blue b
 
 The background colour does not distract from the main features of the quiz and the font colour is easily read as it nicely contrasts with the background. 
 
+[return to contents](<#contents>)
+
 ### Type Face
 Throughout the site Roboto Slab has been used. It's an easy to read, neat font which doesn't distract from the overall appearance of the site.
 
 In case Roboto Slab isn't supported in the browser sans serif is available as a backup. As with Roboto this is an easy to read font which is widely accessible on browsers so should always be available making it an ideal backup font.    
 
+[return to contents](<#contents>)
+
 ## Features
 ---
 ### Existing Features
-
 
 #### Home Page
 ---
@@ -60,16 +63,22 @@ In case Roboto Slab isn't supported in the browser sans serif is available as a 
 
 ![final page](assets/readme_images/finalpage.png)
 
+[return to contents](<#contents>)
+
 * Button Hovering
     * When the cursor hovers over a button is increases in size by 3% and gains a slight shadow effect over 300 milliseconds. This adds value with an extra level of interactivity for the user. 
 
 ![Button Hover1](assets/readme_images/button-hover1.png) ![Button Hover2](assets/readme_images/button-hover2.png)
+
+[return to contents](<#contents>)
 
 * Instructions
     * The instructions button on the index page is easily visible and as a button the user should intuitively know to click the button to get access to the information
     * Once clicked the instructions button disapears and a box with informative guide as to how the quiz works is revealed. This box can be clicked for the instructions button to reappear. This keeps the index page neat and simple. 
 
 ![instructions1](assets/readme_images/instructions1.png)  ![instructions2](assets/readme_images/instructions2.png)
+
+[return to contents](<#contents>)
 
 #### Quiz Page
 ---
@@ -80,7 +89,7 @@ In case Roboto Slab isn't supported in the browser sans serif is available as a 
 ![quiz page top row](assets/readme_images/top-row.png)
 
 * The central section of the quiz
-    * Initially the user is presented with a selection of four answers and no celebrity image. Once the user clicks an area of the image that portion of the celebrity image is revealed
+    * Initially the user is presented with a selection of four answers and no celebrity image. The image quickly lets the user know what to do and looks nice on opening the quiz page. Once the user clicks an area of the image that portion of the celebrity image is revealed
 
 The below shows before the user clicks
 
@@ -92,4 +101,67 @@ The below shows after a single click
 
 The user is then able to either guess who the image is of or click another section of the image to reveal more of the celebrity. 
 
-If they guess who is shown correctly 
+If they guess who is shown correctly the image flashes green and if the user has sound allowed they will hear applause, the points available will be added to the total score and a new question will be loaded. If incorrect the answer they selected will flash red and a sad horn noise will be heard if they have sound allowed, they will score 0 for that round. This adds value to the user with positive affirmation if they get the answer correct. The trumpet is slightly humerous if they get the wrong answer so they will not feel too bad about it. 
+
+The celebrity images are pulled out of an array at random so the user cannot play through the quiz a second time and know the answers without clicking to reveal the celebrity image. In addition only 5 of a total of 10 questions are asked each time the user takes the quiz which means the user is unlikely to ever experience the same questions in the same order. 
+
+![quiz main section correct answer](assets/readme_images/quiz-section2.png)
+
+* Bottom section of the quiz page. This section contains two features:
+    * The first is the instuctions again if the user did not check on the first page or forgets how the game works. When clicked the text disapears and is replaced by a box with instructions in. If this box is clicked it disapears and is replaced with the original text.
+    * The second feature allows the user to toggle sound effects on or off and adds value to the user if they want to listen to music or other sounds while playing the quiz without the quiz noises playing. 
+
+The below shows the section when neither feature has been clicked
+![bottom section of quiz page 1](assets/readme_images/quiz-bottom1.png)
+
+The below shows the section when both features have been clicked
+![bottom section of quiz page 2](assets/readme_images/quiz-bottom2.png)
+
+[return to contents](<#contents>)
+
+#### Quiz End Page
+
+* Once the user has completed the quiz they are brought to the end of quiz page. Here the user is congratulated on finishing, their username is displayed along with their score and a comment under the score which is dependant on the score iteself. Over 100 it says "Wow, you really know your celebs", between 99 and 50 points it says "Not bad. You recognised someone..." ad under 50 it says "It's ok, celebs are not your thing". This adds value to the user with positive affirmation, using their name to make them feel welcome and then letting them know their score. 
+
+![final page](assets/readme_images/finalpage.png)
+
+From here the user can play again, go to the home page or check their highscores. 
+
+#### Highscores Page
+
+The highscores of the user are presented here, the below image shows only one as it has only been played through once. If played successive times more scores would appear. 
+
+![Highscores page](assets/readme_images/highscores.png)
+
+[return to contents](<#contents>)
+
+## Features left to Implement
+
+Two key improvements
+
+* It would be useful to add a feature which activates if the user tries to refresh their score while playing the quiz which alerts them that their score would be lost and allows them the opportunity to cancel the refresh. 
+
+* It would be good to have a leaderboard rather than a highscores list allowing the user to see how they performed vs other users of the quiz. 
+
+In addition to the above extra questions should be added to keep the quiz interesting and allow multiple play throughs without seeing the same celeb. Around 100 questions would probably offer a significantly improved user experience over the existing 10 questions. 
+
+[return to contents](<#contents>)
+
+# Testing
+
+## Validation of Code
+
+The Celebrity Quiz has been extensively tested. The code has been run through the [W3C html Validator](https://validator.w3.org/) and [W3C CSS validator](https://jigsaw.w3.org/css-validator/) with no errors. All pages returned the image below: 
+
+![celebrity quiz w3validator html](assets/readme_images/html-validator.png)
+
+The CSS code returned the response below: 
+
+![celebrity quiz w3validator CSS](assets/readme_images/css-validator.png)
+
+The exception is the quiz-end.html page which received two warnings for empty headings however, these are filled by the javascript running upon the page opening. If Javascript is not working the noscript would run telling the user this. As a result these warnings can be disregarded. 
+
+![celebrity quiz html warnings](assets/readme_images/html-warning.png)
+
+[return to contents](<#contents>)
+
