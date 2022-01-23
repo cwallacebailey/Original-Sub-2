@@ -47,7 +47,7 @@ In case Roboto Slab isn't supported in the browser sans serif is available as a 
 ### Existing Features
 
 #### Home Page
----
+
 
 * Heading and Username
     * The opening page immediately welcomes the user and lets them know the premise of the site, a celebrity quiz. 
@@ -81,7 +81,7 @@ In case Roboto Slab isn't supported in the browser sans serif is available as a 
 [return to contents](<#contents>)
 
 #### Quiz Page
----
+
 * The top row of the quiz opening page keeps a uniform, clear title available for the user to see. This is followed by their current score, the points available to win in that round and the progress bar
     * The points to win reduces with each part of the celebrity image that is revealed. 40 is available with no clues, the user risks getting 0 if they guess at the stage. 20 points are available with a single section of the celebs face available to see, 10 points for two sections and so on.
     * The progress bar indicates how many questions are available before the end of the quiz by filling up with each question answered. 
@@ -162,6 +162,18 @@ The CSS code returned the response below:
 The exception is the quiz-end.html page which received two warnings for empty headings however, these are filled by the javascript running upon the page opening. If Javascript is not working the noscript would run telling the user this. As a result these warnings can be disregarded. 
 
 ![celebrity quiz html warnings](assets/readme_images/html-warning.png)
+
+[JS Validator](https://jshint.com/) was used to ensure there were no syntax errors or missing semi colons in the Javascript code. There were no erroris in the code but there were 43 warnings which all related to "let", 'const', template literals and arrow function syntax only being available in ES6 or "Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (randomNumber, pointsToWin, points)".
+
+The metrics read that: 
+
+There are 13 functions in this file.
+
+Function with the largest signature take 1 arguments, while the median is 0.
+
+Largest function has 20 statements in it, while the median is 8.
+
+The most complex function has a cyclomatic complexity value of 4 while the median is 2.
 
 [return to contents](<#contents>)
 

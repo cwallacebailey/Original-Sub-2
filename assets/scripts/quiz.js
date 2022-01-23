@@ -319,7 +319,7 @@ if (score >= 99) {
 }
 }
 
-// sets the users score on the leaderboard
+// sets the users score on the highscores page
 
 function highScores() {
     let highScores = [];
@@ -337,4 +337,3 @@ function highScores() {
 
     document.getElementById("leaderboard-list").innerHTML = li;
 }
-
