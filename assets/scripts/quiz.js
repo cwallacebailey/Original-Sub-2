@@ -218,16 +218,16 @@ function beginGame() {
         let q3 = document.getElementById("q3")
         let q4 = document.getElementById("q4")
         let multiple = array.length
-        globalThis.start = Math.floor(Math.random()*multiple) // Global Variable
+        globalThis.randomNumber = Math.floor(Math.random()*multiple) // Global Variable
         
         picture1.src = 'assets/images/click1.png';
         picture2.src = 'assets/images/click2.png';
         picture3.src = 'assets/images/click3.png';
         picture4.src = 'assets/images/click4.png';
-        q1.innerHTML = array[start].choice1;
-        q2.innerHTML = array[start].choice2;
-        q3.innerHTML = array[start].choice3;
-        q4.innerHTML = array[start].choice4;
+        q1.innerHTML = array[randomNumber].choice1;
+        q2.innerHTML = array[randomNumber].choice2;
+        q3.innerHTML = array[randomNumber].choice3;
+        q4.innerHTML = array[randomNumber].choice4;
     }
 
     // code to flip images 
@@ -236,19 +236,19 @@ function beginGame() {
         for (let i = 0; i < imageSelect.length; i++) {
             imageSelect[i].addEventListener('click', (event)=> {
                 if (event.target.id === "pic1") {
-                    event.target.setAttribute('src', array[start].img1)
+                    event.target.setAttribute('src', array[randomNumber].img1)
                     pointsToWin = pointsToWin / 2 
                     points.innerText = pointsToWin
                 } else if (event.target.id === "pic2") {
-                    event.target.setAttribute('src', array[start].img2)
+                    event.target.setAttribute('src', array[randomNumber].img2)
                     pointsToWin = pointsToWin / 2
                     points.innerText = pointsToWin
                 } else if (event.target.id === "pic3") {
-                    event.target.setAttribute('src', array[start].img3)
+                    event.target.setAttribute('src', array[randomNumber].img3)
                     pointsToWin = pointsToWin / 2
                     points.innerText = pointsToWin
                 } else {
-                    event.target.setAttribute('src', array[start].img4)
+                    event.target.setAttribute('src', array[randomNumber].img4)
                     pointsToWin = pointsToWin / 2
                     points.innerText = pointsToWin
                 }
@@ -262,7 +262,7 @@ function beginGame() {
         choices[i].addEventListener('click', (event)=> {
             let selection = event.target
             let answer = selection.innerText
-            let correctAnswer = array[start].answer
+            let correctAnswer = array[randomNumber].answer
             let cheer = new Audio('assets/mp3/cheering.wav')
             let sad = new Audio('assets/mp3/sad.wav')
             let sound = document.getElementById("sound")
@@ -287,7 +287,7 @@ function beginGame() {
             
             setTimeout(function() {
                 selection.style.backgroundColor = "#0c1a25"
-                array.splice(start,1)
+                array.splice(randomNumber,1)
                 questions += 1
                 progressBar.style.width = `${((questions)/5)*100}%`
 
@@ -304,18 +304,19 @@ function beginGame() {
 // sets quiz end page as the final score and gives the user their rating
 
 function setScore() {
-let score = localStorage.getItem('score')
+let score = Math.round(localStorage.getItem('score'))
 document.getElementById("finalScore").innerText = score
 
 let username = localStorage.getItem('username')
 document.getElementById("name").innerHTML = `${username}, your final score is:`
 
-if (score > 100) {
+if (score >= 99) {
     document.getElementById("rank").innerText = "Wow, you really know your celebs"
-} else if (score < 100 && score > 50) {
+} else if (score < 99 && score > 50) {
     document.getElementById("rank").innerText = "Not bad. You recognised someone..."
 } else {
     document.getElementById("rank").innerText = "It's ok, celebs are not your thing"
+    console.log(score)
 }
 }
 
