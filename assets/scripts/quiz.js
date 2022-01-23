@@ -1,7 +1,7 @@
 // focus on enter username box on opening index.html
 
 function focus() {
-    document.getElementById("username").focus();
+    document.getElementById("username").focus()
   }
 
 // Opens instruction box on being clicked
@@ -255,7 +255,7 @@ function beginGame() {
             })
         }   
 
-    //check answer
+    // code below checks the users answer, plays a sound if correct/ incorrect and loads a new question
 
     let choices = document.getElementsByClassName("quiz-button")
     for (let i = 0; i < choices.length; i++) {
