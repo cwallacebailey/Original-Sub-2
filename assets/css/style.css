@@ -59,6 +59,7 @@ h1 {
     border-style: solid;
     border-color: silver;
     border-width: 1px;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -162,6 +163,7 @@ h1 {
     background-color: #0c1a25;
     text-align: center;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .fa-volume-mute, .fa-volume-up {
@@ -196,13 +198,14 @@ h1 {
     font-size: 2.5rem;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
     h1 {
-        margin-bottom: 0rem;
+        
+        font-size: 3rem;
     }
 
     .top-row {
-        padding-bottom: 1rem;
+        padding-bottom: 0rem;
     }
 
     .button {
@@ -212,8 +215,12 @@ h1 {
     .quiz-button {
         font-size: 2rem;
         margin: 0.5rem;
-        padding: 2rem;
+        padding: 2.5rem;
         width: 350px;
+    }
+
+    .break {
+        height: 2px;
     }
 }
 
@@ -254,10 +261,6 @@ h1 {
 
     .quiz-end-text {
         font-size: 3rem;
-    }
-
-    .break {
-        height: 4px;
     }
 }
 

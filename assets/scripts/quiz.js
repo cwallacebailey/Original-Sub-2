@@ -7,15 +7,19 @@ function focus() {
 // Opens instruction box on being clicked
 
 function instructions() {
-    let instructions = document.getElementById("instructionsBox")
-    instructions.setAttribute("style", "display: block")
+    let instructionsBox = document.getElementById("instructionsBox")
+    instructionsBox.setAttribute("style", "display: block")
+    let instructions = document.getElementById("instructions")
+    instructions.setAttribute("style", "display: none")
 }
 
 // Closes instruction box on being clicked
 
 function instructionsGone() {
-    let instructions = document.getElementById("instructionsBox")
-    instructions.setAttribute("style", "display: none")
+    let instructionsBox = document.getElementById("instructionsBox")
+    instructionsBox.setAttribute("style", "display: none")
+    let instructions = document.getElementById("instructions")
+    instructions.setAttribute("style", "display: block")
 }
 
 // save username
@@ -214,7 +218,7 @@ function beginGame() {
         let q3 = document.getElementById("q3")
         let q4 = document.getElementById("q4")
         let multiple = array.length
-        globalThis.start = Math.floor(Math.random()*multiple)
+        globalThis.start = Math.floor(Math.random()*multiple) // Global Variable
         
         picture1.src = 'assets/images/click1.png';
         picture2.src = 'assets/images/click2.png';
@@ -226,7 +230,7 @@ function beginGame() {
         q4.innerHTML = array[start].choice4;
     }
 
-    //flip images
+    // code to flip images 
 
     let imageSelect = document.getElementsByClassName("picture-item")
         for (let i = 0; i < imageSelect.length; i++) {
@@ -253,39 +257,39 @@ function beginGame() {
 
     //check answer
 
-        let choices = document.getElementsByClassName("quiz-button")
-        for (let i = 0; i < choices.length; i++) {
-            choices[i].addEventListener('click', (event)=> {
-                let selection = event.target
-                let answer = selection.innerText
-                let correctAnswer = array[start].answer
-                let cheer = new Audio('assets/mp3/cheering.wav')
-                let sad = new Audio('assets/mp3/sad.wav')
-                let sound = document.getElementById("sound")
+    let choices = document.getElementsByClassName("quiz-button")
+    for (let i = 0; i < choices.length; i++) {
+        choices[i].addEventListener('click', (event)=> {
+            let selection = event.target
+            let answer = selection.innerText
+            let correctAnswer = array[start].answer
+            let cheer = new Audio('assets/mp3/cheering.wav')
+            let sad = new Audio('assets/mp3/sad.wav')
+            let sound = document.getElementById("sound")
 
-                if (answer === correctAnswer) {
-                    selection.style.backgroundColor = "green"
-                    if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
-                        cheer.play()
-                        }
-                    score = score + pointsToWin
-                    setScore.innerText = score
-                    pointsToWin = 40
-                    points.innerText = pointsToWin
-                } else {
-                    selection.style.backgroundColor = "red"
-                    if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
-                        sad.play()
-                        }
-                    pointsToWin = 40
-                    points.innerText = pointsToWin
+            if (answer === correctAnswer) {
+                selection.style.backgroundColor = "green"
+                if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
+                    cheer.play()
+                    }
+                score = score + pointsToWin
+                setScore.innerText = score
+                pointsToWin = 40
+                points.innerText = pointsToWin
+            } else {
+                selection.style.backgroundColor = "red"
+                if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
+                    sad.play()
+                    }
+                pointsToWin = 40
+                points.innerText = pointsToWin
                 }
             
-                setTimeout(function() {
-                    selection.style.backgroundColor = "#0c1a25"
-                    array.splice(start,1)
-                    questions += 1
-                    progressBar.style.width = `${((questions)/5)*100}%`
+            setTimeout(function() {
+                selection.style.backgroundColor = "#0c1a25"
+                array.splice(start,1)
+                questions += 1
+                progressBar.style.width = `${((questions)/5)*100}%`
 
                     if (questions === 5) {
                         localStorage.setItem('score', score)
@@ -296,6 +300,8 @@ function beginGame() {
             })
         }
     }
+
+// sets quiz end page as the final score and gives the user their rating
 
 function setScore() {
 let score = localStorage.getItem('score')
@@ -312,6 +318,8 @@ if (score > 100) {
     document.getElementById("rank").innerText = "It's ok, celebs are not your thing"
 }
 }
+
+// sets the users score on the leaderboard
 
 function highScores() {
     let highScores = []
