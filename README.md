@@ -1,1 +1,2 @@
-# Project_2_Celebrity_Quiz
+# Celebrity Quiz
+
