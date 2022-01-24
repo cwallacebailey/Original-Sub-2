@@ -26,12 +26,12 @@ function instructionsGone() {
 
 function saveUsername() {
     let username = document.getElementById("username").value;
-    
+    username = username.replace(/ /g, '') // removes all spaces
     if (username.length <= 2) {
         alert("Please enter a username over 2 characters");
     } else {
     localStorage.setItem('username', username);
-    window.location.href = "quiz-page.html";
+    window.location.href = "quiz-page.html";    
     }
 }
 
