@@ -198,7 +198,7 @@ const array = [
 
 function beginGame() {
     let score = 0;
-    let pointsToWin = 40;
+    let pointsToWin = 20;
     let questions = 0;
     let points = document.getElementById("pointsToWin");
     let progressBar = document.getElementById("progressBar");
@@ -218,7 +218,7 @@ function beginGame() {
         let q3 = document.getElementById("q3");
         let q4 = document.getElementById("q4");
         let multiple = array.length;
-        globalThis.randomNumber = Math.floor(Math.random()*multiple); // Global Variable
+        globalThis.randomNumber = Math.floor(Math.random()*multiple); // Global Variable 'randomNumber'
         
         picture1.src = 'assets/images/click1.png';
         picture2.src = 'assets/images/click2.png';
@@ -232,25 +232,38 @@ function beginGame() {
 
     // code to flip images 
 
+    let clicks = 0
     let imageSelect = document.getElementsByClassName("picture-item");
         for (let i = 0; i < imageSelect.length; i++) {
             imageSelect[i].addEventListener('click', (event)=> {
                 if (event.target.id === "pic1") {
                     event.target.setAttribute('src', array[randomNumber].img1);
-                    pointsToWin = pointsToWin / 2;
-                    points.innerText = pointsToWin;
+                    clicks = clicks + 1
+                    if (clicks > 1) {
+                        pointsToWin = pointsToWin / 2;
+                        points.innerText = pointsToWin;
+                    }
                 } else if (event.target.id === "pic2") {
                     event.target.setAttribute('src', array[randomNumber].img2);
-                    pointsToWin = pointsToWin / 2;
-                    points.innerText = pointsToWin;
+                    clicks = clicks + 1
+                    if (clicks > 1) {
+                        pointsToWin = pointsToWin / 2;
+                        points.innerText = pointsToWin;
+                    }
                 } else if (event.target.id === "pic3") {
                     event.target.setAttribute('src', array[randomNumber].img3);
-                    pointsToWin = pointsToWin / 2;
-                    points.innerText = pointsToWin;
+                    clicks = clicks + 1
+                    if (clicks > 1) {
+                        pointsToWin = pointsToWin / 2;
+                        points.innerText = pointsToWin;
+                    }
                 } else {
                     event.target.setAttribute('src', array[randomNumber].img4);
-                    pointsToWin = pointsToWin / 2;
-                    points.innerText = pointsToWin;
+                    clicks = clicks + 1
+                    if (clicks > 1) {
+                        pointsToWin = pointsToWin / 2;
+                        points.innerText = pointsToWin;
+                    }
                 }
             });
         }   
@@ -274,14 +287,16 @@ function beginGame() {
                     }
                 score = score + pointsToWin;
                 setScore.innerText = score;
-                pointsToWin = 40;
+                pointsToWin = 20;
+                clicks = 0
                 points.innerText = pointsToWin;
             } else {
                 selection.style.backgroundColor = "red";
                 if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
                     sad.play();
                     }
-                pointsToWin = 40;
+                pointsToWin = 20;
+                clicks = 0
                 points.innerText = pointsToWin;
                 }
             
