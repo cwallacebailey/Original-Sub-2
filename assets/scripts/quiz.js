@@ -238,28 +238,28 @@ function beginGame() {
             imageSelect[i].addEventListener('click', (event)=> {
                 if (event.target.id === "pic1") {
                     event.target.setAttribute('src', array[randomNumber].img1);
-                    clicks = clicks + 1
+                    clicks += 1
                     if (clicks > 1) {
                         pointsToWin = pointsToWin / 2;
                         points.innerText = pointsToWin;
                     }
                 } else if (event.target.id === "pic2") {
                     event.target.setAttribute('src', array[randomNumber].img2);
-                    clicks = clicks + 1
+                    clicks += 1
                     if (clicks > 1) {
                         pointsToWin = pointsToWin / 2;
                         points.innerText = pointsToWin;
                     }
                 } else if (event.target.id === "pic3") {
                     event.target.setAttribute('src', array[randomNumber].img3);
-                    clicks = clicks + 1
+                    clicks += 1
                     if (clicks > 1) {
                         pointsToWin = pointsToWin / 2;
                         points.innerText = pointsToWin;
                     }
-                } else {
+                } else if (event.target.id === "pic4") {
                     event.target.setAttribute('src', array[randomNumber].img4);
-                    clicks = clicks + 1
+                    clicks += 1
                     if (clicks > 1) {
                         pointsToWin = pointsToWin / 2;
                         points.innerText = pointsToWin;
