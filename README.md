@@ -18,6 +18,11 @@ Please see the final project [here](https://cwallacebailey.github.io/Project_2_C
     * [Type Face](#type-face)
 * [Features](#features)
     * [Existing Features](#existing-features)
+        * [Home Page](#home-page)
+        * [Quiz Page](#quiz-page)
+        * [Quiz End Page](#quiz-end-page)
+        * [Features to Implement](#features-left-to-implement)
+* [Testing](#testing)
 
 # User Experience
 
