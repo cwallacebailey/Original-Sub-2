@@ -195,144 +195,201 @@ const array = [
     },
     ];
 
+// global variables
+
+let questions = 0
+let clicks = 0
+
+// begin game
 
 function beginGame() {
     let score = 0;
     let pointsToWin = 20;
-    let questions = 0;
     let points = document.getElementById("pointsToWin");
-    let progressBar = document.getElementById("progressBar");
     let setScore = document.getElementById("score");
     setScore.innerText = score;
     points.innerText = pointsToWin;
-
     LoadQuestion();
 
-    function LoadQuestion() {
-        let picture1 = document.getElementById("pic1");
-        let picture2 = document.getElementById("pic2");
-        let picture3 = document.getElementById("pic3");
-        let picture4 = document.getElementById("pic4");
-        let q1 = document.getElementById("q1");
-        let q2 = document.getElementById("q2");
-        let q3 = document.getElementById("q3");
-        let q4 = document.getElementById("q4");
-        let multiple = array.length;
-        globalThis.randomNumber = Math.floor(Math.random()*multiple); // Global Variable 'randomNumber'
-        
-        picture1.src = 'assets/images/click1.png';
-        picture2.src = 'assets/images/click2.png';
-        picture3.src = 'assets/images/click3.png';
-        picture4.src = 'assets/images/click4.png';
-        q1.innerHTML = array[randomNumber].choice1;
-        q2.innerHTML = array[randomNumber].choice2;
-        q3.innerHTML = array[randomNumber].choice3;
-        q4.innerHTML = array[randomNumber].choice4;
-    }
+    // Add event listener to images
 
-    // code to flip images 
-
-    let clicks = 0
     let imageSelect = document.getElementsByClassName("picture-item");
-        for (let i = 0; i < imageSelect.length; i++) {
-            imageSelect[i].addEventListener('click', (event)=> {
-                if (event.target.id === "pic1") {
-                    event.target.setAttribute('src', array[randomNumber].img1);
-                    event.target.removeEventListener('click')
-                    clicks += 1
-                    if (clicks > 1) {
-                        pointsToWin = pointsToWin / 2;
-                        points.innerText = pointsToWin;
-                    }
-                } else if (event.target.id === "pic2") {
-                    event.target.setAttribute('src', array[randomNumber].img2);
-                    clicks += 1
-                    if (clicks > 1) {
-                        pointsToWin = pointsToWin / 2;
-                        points.innerText = pointsToWin;
-                    }
-                } else if (event.target.id === "pic3") {
-                    event.target.setAttribute('src', array[randomNumber].img3);
-                    clicks += 1
-                    if (clicks > 1) {
-                        pointsToWin = pointsToWin / 2;
-                        points.innerText = pointsToWin;
-                    }
-                } else if (event.target.id === "pic4") {
-                    event.target.setAttribute('src', array[randomNumber].img4);
-                    clicks += 1
-                    if (clicks > 1) {
-                        pointsToWin = pointsToWin / 2;
-                        points.innerText = pointsToWin;
-                    }
-                }
-            });
-        }   
+    for (let i = 0; i < imageSelect.length; i++) {
+        imageSelect[i].addEventListener('click', flipCard)
+    }    
 
-    // code below checks the users answer, plays a sound if correct/ incorrect and loads a new question
+    // Add event listener to quiz answers
 
     let choices = document.getElementsByClassName("quiz-button");
     for (let i = 0; i < choices.length; i++) {
-        choices[i].addEventListener('click', (event)=> {
-            let selection = event.target;
-            let answer = selection.innerText;
-            let correctAnswer = array[randomNumber].answer;
-            let cheer = new Audio('assets/mp3/cheering.wav');
-            let sad = new Audio('assets/mp3/sad.wav');
-            let sound = document.getElementById("sound");
+        choices[i].addEventListener('click', checkAnswer)
+    }
+}
 
-            if (answer === correctAnswer) {
-                selection.style.backgroundColor = "green";
-                if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
-                    cheer.play();
-                    }
-                score = score + pointsToWin;
-                setScore.innerText = score;
-                pointsToWin = 20;
-                clicks = 0
-                points.innerText = pointsToWin;
-            } else {
-                selection.style.backgroundColor = "red";
-                if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
-                    sad.play();
-                    }
-                pointsToWin = 20;
-                clicks = 0
-                points.innerText = pointsToWin;
-                }
-            
-            setTimeout(function() {
-                selection.style.backgroundColor = "#0c1a25";
-                array.splice(randomNumber,1);
-                questions += 1;
-                progressBar.style.width = `${((questions)/5)*100}%`;
+// flips cards on click, if its the first click it does not reduce the points to win
 
-                    if (questions === 5) {
-                        localStorage.setItem('score', score);
-                        window.location.href = "quiz-end.html";
-                    } else { LoadQuestion();
-                    }
-                }, 1000);
-            });
+let p1 = 0 //global variables
+let p2 = 0 //global variables
+let p3 = 0 //global variables
+let p4 = 0 //global variables
+
+let flipCard = (event) => {
+    if (event.target.id === "pic1") {
+        p1 += 1
+        console.log(p1)
+    }
+    if (event.target.id === "pic2") {
+        p2 += 1
+        console.log(p2)
+    }
+    if (event.target.id === "pic3") {
+        p3 += 1
+        console.log(p3)
+    }
+    if (event.target.id === "pic4") {
+        p4 += 1
+        console.log(p4)
+    }
+    if (event.target.id === "pic1" && p1 === 1) {
+        event.target.setAttribute('src', array[randomNumber].img1);
+        clicks +=1
+        if (clicks > 1) {
+            reducePointsToWin()
+        }
+    } else if (event.target.id === "pic2" && p2 === 1) {
+        event.target.setAttribute('src', array[randomNumber].img2);
+        clicks +=1
+        if (clicks > 1) {
+            reducePointsToWin()
+        }
+    } else if (event.target.id === "pic3" && p3 === 1) {
+        event.target.setAttribute('src', array[randomNumber].img3);
+        clicks +=1
+        if (clicks > 1) {
+            reducePointsToWin()
+        }
+    } else if (event.target.id === "pic4" && p4 === 1) {
+        event.target.setAttribute('src', array[randomNumber].img4);
+        clicks +=1
+        if (clicks > 1) {
+            reducePointsToWin()
         }
     }
+}
+
+function removalItem(event) {
+    console.log(event.target)
+    removeEventListener('click', flipCard)
+}
+
+function checkAnswer(event) {
+// check answer variables
+    let selection = event.target;
+    let answer = selection.innerText;
+    let correctAnswer = array[randomNumber].answer;
+// points system variables
+    let points = document.getElementById("pointsToWin");
+// progress bar variable
+    let progressBar = document.getElementById("progressBar");
+// sound playing variables
+    let cheer = new Audio('assets/mp3/cheering.wav');
+    let sad = new Audio('assets/mp3/sad.wav');
+    let sound = document.getElementById("sound");
+
+    if (answer === correctAnswer) {
+        selection.style.backgroundColor = "green";
+        if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
+            cheer.play();
+            }
+        scoreUpdate()
+        clicks = 0
+    } else {
+        selection.style.backgroundColor = "red";
+        if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
+            sad.play();
+            }
+        points.innerText = 20;
+        clicks = 0
+        }
+        
+    setTimeout(function() {
+        let score = parseInt(document.getElementById("score").innerText)
+        selection.style.backgroundColor = "#0c1a25";
+        array.splice(randomNumber,1);
+        questions += 1;
+        progressBar.style.width = `${((questions)/5)*100}%`;
+
+        if (questions === 5) {
+            localStorage.setItem('score', score);
+            window.location.href = "quiz-end.html";
+        } else { 
+            LoadQuestion();
+        }
+    }, 1000);
+};
+
+function scoreUpdate() {
+    let points = document.getElementById("pointsToWin");
+    let pointsToWin = parseInt(points.innerText)
+    let setScore = document.getElementById("score")
+    let score = parseInt(document.getElementById("score").innerText)
+
+    score = score + pointsToWin;
+    setScore.innerHTML = score
+    points.innerText = 20;
+}
+
+function LoadQuestion() {
+    let picture1 = document.getElementById("pic1");
+    let picture2 = document.getElementById("pic2");
+    let picture3 = document.getElementById("pic3");
+    let picture4 = document.getElementById("pic4");
+    let q1 = document.getElementById("q1");
+    let q2 = document.getElementById("q2");
+    let q3 = document.getElementById("q3");
+    let q4 = document.getElementById("q4");
+    let multiple = array.length;
+    globalThis.randomNumber = Math.floor(Math.random()*multiple); // Global Variable 'randomNumber'
+        
+    picture1.src = 'assets/images/click1.png';
+    picture2.src = 'assets/images/click2.png';
+    picture3.src = 'assets/images/click3.png';
+    picture4.src = 'assets/images/click4.png';
+    q1.innerHTML = array[randomNumber].choice1;
+    q2.innerHTML = array[randomNumber].choice2;
+    q3.innerHTML = array[randomNumber].choice3;
+    q4.innerHTML = array[randomNumber].choice4;
+    p1 = 0
+    p2 = 0
+    p3 = 0 
+    p4 = 0
+}
+
+// reduces points to win with each image flipped. 
+
+function reducePointsToWin() {
+    let setPointsToWin = document.getElementById("pointsToWin")
+    let pointsToWin = document.getElementById("pointsToWin").innerHTML
+    pointsToWin = pointsToWin/2
+    setPointsToWin.innerHTML = pointsToWin
+}
 
 // sets quiz end page as the final score and gives the user their rating
 
 function setScore() {
-let score = Math.round(localStorage.getItem('score'));
-document.getElementById("finalScore").innerText = score;
-
-let username = localStorage.getItem('username');
-document.getElementById("name").innerHTML = `${username}, your final score is:`;
-
-if (score >= 99) {
-    document.getElementById("rank").innerText = "Wow, you really know your celebs";
-} else if (score < 99 && score >= 50) {
-    document.getElementById("rank").innerText = "Not bad. You recognised someone...";
-} else {
-    document.getElementById("rank").innerText = "It's ok, celebs are not your thing";
-}
+    let score = Math.round(localStorage.getItem('score'));
+    document.getElementById("finalScore").innerText = score;
+    
+    let username = localStorage.getItem('username');
+    document.getElementById("name").innerHTML = `${username}, your final score is:`;
+    
+    if (score >= 80) {
+        document.getElementById("rank").innerText = "Wow, you really know your celebs";
+    } else if (score < 79 && score >= 30) {
+        document.getElementById("rank").innerText = "Not bad. You recognised someone...";
+    } else {
+        document.getElementById("rank").innerText = "It's ok, celebs are not your thing";
+    }
 }
 
 // sets the users score on the highscores page
@@ -353,3 +410,5 @@ function highScores() {
 
     document.getElementById("leaderboard-list").innerHTML = li;
 }
+
+
