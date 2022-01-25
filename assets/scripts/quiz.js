@@ -238,6 +238,7 @@ function beginGame() {
             imageSelect[i].addEventListener('click', (event)=> {
                 if (event.target.id === "pic1") {
                     event.target.setAttribute('src', array[randomNumber].img1);
+                    event.target.removeEventListener('click')
                     clicks += 1
                     if (clicks > 1) {
                         pointsToWin = pointsToWin / 2;
