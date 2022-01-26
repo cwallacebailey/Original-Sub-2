@@ -26,7 +26,7 @@ function instructionsGone() {
 
 function saveUsername() {
     let username = document.getElementById("username").value;
-    username = username.replace(/ /g, '') // removes all spaces
+    username = username.replace(/ /g, ''); // removes all spaces
     if (username.length <= 2) {
         alert("Please enter a username over 2 characters");
     } else {
@@ -197,10 +197,10 @@ const array = [
 
 // global variables
 
-let questions = 0
-let clicks = 0
+let questions = 0;
+let clicks = 0;
 
-// begin game
+// begin game called when quiz-page.html is loaded
 
 function beginGame() {
     let score = 0;
@@ -215,72 +215,68 @@ function beginGame() {
 
     let imageSelect = document.getElementsByClassName("picture-item");
     for (let i = 0; i < imageSelect.length; i++) {
-        imageSelect[i].addEventListener('click', flipCard)
+        imageSelect[i].addEventListener('click', flipCard);
     }    
 
     // Add event listener to quiz answers
 
     let choices = document.getElementsByClassName("quiz-button");
     for (let i = 0; i < choices.length; i++) {
-        choices[i].addEventListener('click', checkAnswer)
+        choices[i].addEventListener('click', checkAnswer);
     }
 }
 
 // flips cards on click, if its the first click it does not reduce the points to win
 
-let p1 = 0 //global variables
-let p2 = 0 //global variables
-let p3 = 0 //global variables
-let p4 = 0 //global variables
+let p1 = 0; //global variables
+let p2 = 0; //global variables
+let p3 = 0; //global variables
+let p4 = 0; //global variables
+
+// function below is used in flipcard() to stop the user being able to click the same image section twice and still reducing points to win
+
+function preventDoubleClick(event) {
+    if (event.target.id === "pic1") {
+        p1 += 1;
+    }
+    else if (event.target.id === "pic2") {
+        p2 += 1;
+    }
+    else if (event.target.id === "pic3") {
+        p3 += 1;
+    }
+    else if (event.target.id === "pic4") {
+        p4 += 1;
+    }
+}
+
+// Function used to check how many times the images have been clicked. If more than once points to win will be reduced. 
+
+function clickCheck() {
+    clicks += 1;
+    if (clicks > 1) {
+        reducePointsToWin();
+    }
+}
+
+// flips the card. If more than one section has been revealed points to win is halved by calling clickCheck() which calls reducePointsToWin()
 
 let flipCard = (event) => {
-    if (event.target.id === "pic1") {
-        p1 += 1
-        console.log(p1)
-    }
-    if (event.target.id === "pic2") {
-        p2 += 1
-        console.log(p2)
-    }
-    if (event.target.id === "pic3") {
-        p3 += 1
-        console.log(p3)
-    }
-    if (event.target.id === "pic4") {
-        p4 += 1
-        console.log(p4)
-    }
+    preventDoubleClick(event)
     if (event.target.id === "pic1" && p1 === 1) {
         event.target.setAttribute('src', array[randomNumber].img1);
-        clicks +=1
-        if (clicks > 1) {
-            reducePointsToWin()
-        }
+        clickCheck()
     } else if (event.target.id === "pic2" && p2 === 1) {
         event.target.setAttribute('src', array[randomNumber].img2);
-        clicks +=1
-        if (clicks > 1) {
-            reducePointsToWin()
-        }
+        clickCheck()
     } else if (event.target.id === "pic3" && p3 === 1) {
         event.target.setAttribute('src', array[randomNumber].img3);
-        clicks +=1
-        if (clicks > 1) {
-            reducePointsToWin()
-        }
+        clickCheck()
     } else if (event.target.id === "pic4" && p4 === 1) {
         event.target.setAttribute('src', array[randomNumber].img4);
-        clicks +=1
-        if (clicks > 1) {
-            reducePointsToWin()
-        }
+        clickCheck()
     }
-}
-
-function removalItem(event) {
-    console.log(event.target)
-    removeEventListener('click', flipCard)
-}
+};
 
 function checkAnswer(event) {
 // check answer variables
@@ -301,19 +297,19 @@ function checkAnswer(event) {
         if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
             cheer.play();
             }
-        scoreUpdate()
-        clicks = 0
+        scoreUpdate();
+        clicks = 0;
     } else {
         selection.style.backgroundColor = "red";
         if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
             sad.play();
             }
         points.innerText = 20;
-        clicks = 0
+        clicks = 0;
         }
         
     setTimeout(function() {
-        let score = parseInt(document.getElementById("score").innerText)
+        let score = parseInt(document.getElementById("score").innerText);
         selection.style.backgroundColor = "#0c1a25";
         array.splice(randomNumber,1);
         questions += 1;
@@ -326,16 +322,16 @@ function checkAnswer(event) {
             LoadQuestion();
         }
     }, 1000);
-};
+}
 
 function scoreUpdate() {
     let points = document.getElementById("pointsToWin");
-    let pointsToWin = parseInt(points.innerText)
-    let setScore = document.getElementById("score")
-    let score = parseInt(document.getElementById("score").innerText)
+    let pointsToWin = parseInt(points.innerText);
+    let setScore = document.getElementById("score");
+    let score = parseInt(document.getElementById("score").innerText);
 
     score = score + pointsToWin;
-    setScore.innerHTML = score
+    setScore.innerHTML = score;
     points.innerText = 20;
 }
 
@@ -359,19 +355,19 @@ function LoadQuestion() {
     q2.innerHTML = array[randomNumber].choice2;
     q3.innerHTML = array[randomNumber].choice3;
     q4.innerHTML = array[randomNumber].choice4;
-    p1 = 0
-    p2 = 0
-    p3 = 0 
-    p4 = 0
+    p1 = 0;
+    p2 = 0;
+    p3 = 0;
+    p4 = 0;
 }
 
 // reduces points to win with each image flipped. 
 
 function reducePointsToWin() {
-    let setPointsToWin = document.getElementById("pointsToWin")
-    let pointsToWin = document.getElementById("pointsToWin").innerHTML
-    pointsToWin = pointsToWin/2
-    setPointsToWin.innerHTML = pointsToWin
+    let setPointsToWin = document.getElementById("pointsToWin");
+    let pointsToWin = document.getElementById("pointsToWin").innerHTML;
+    pointsToWin = pointsToWin/2;
+    setPointsToWin.innerHTML = pointsToWin;
 }
 
 // sets quiz end page as the final score and gives the user their rating
