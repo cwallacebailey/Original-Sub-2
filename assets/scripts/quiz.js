@@ -2,7 +2,6 @@
 
 function focus() {
     document.getElementById("username").focus();
-    playAgain()
   }
 
 // Opens instruction box on being clicked
@@ -392,7 +391,10 @@ function setScore() {
 function highScores() {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let score = localStorage.getItem('score');
-    highScores.push(score)
+        if (score > 0) {
+            highScores.push(score)
+        }
+    localStorage.clear('score')
     //sort the array
     highScores = highScores.map(Number);
     highScores.sort(function(a, b){return a - b}).reverse()
@@ -428,9 +430,9 @@ function playAgain() {
     document.getElementById("hide").setAttribute("style", "display: block")
 
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    console.log(highScores)
-    if (highScores.length < 2) {
-        let playAgainButton = document.getElementById("playAgain")
-        playAgainButton.setAttribute("style", "display: none")
+    if (highScores.length <= 1) {
+        document.getElementById("playAgain").setAttribute("style", "display: none")
+    } else {
+        document.getElementById("hide").setAttribute("style", "display: block")
     }
 }
