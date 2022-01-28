@@ -2,6 +2,7 @@
 
 function focus() {
     document.getElementById("username").focus();
+    playAgain()
   }
 
 // Opens instruction box on being clicked
@@ -226,8 +227,6 @@ function beginGame() {
     }
 }
 
-// flips cards on click, if its the first click it does not reduce the points to win
-
 let p1 = 0; //global variables
 let p2 = 0; //global variables
 let p3 = 0; //global variables
@@ -403,9 +402,12 @@ function highScores() {
     }
     //store array on local storage
     localStorage.setItem('highScores', JSON.stringify(highScores))
-
+    // call function to create leaderboard
     createHighScores()
+    document.getElementById("hide").setAttribute("style", "display: none")
 }
+
+// creates innerHTML of leaderboard from highScores array
 
 function createHighScores() {
     let highScores = JSON.parse(localStorage.getItem("highScores"))
@@ -420,4 +422,15 @@ function createHighScores() {
     document.getElementById("leaderboard-list").innerHTML = li;
 }
 
+// prevents the "play again" button from showing if the game hasn't yet been played
 
+function playAgain() {
+    document.getElementById("hide").setAttribute("style", "display: block")
+
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    console.log(highScores)
+    if (highScores.length < 2) {
+        let playAgainButton = document.getElementById("playAgain")
+        playAgainButton.setAttribute("style", "display: none")
+    }
+}
