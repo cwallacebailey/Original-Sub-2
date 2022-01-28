@@ -392,6 +392,7 @@ function highScores() {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let score = localStorage.getItem('score');
         if (score > 0) {
+            score = JSON.parse(score)
             highScores.push(score)
         }
     localStorage.clear('score')
