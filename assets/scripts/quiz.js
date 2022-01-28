@@ -373,7 +373,7 @@ function reducePointsToWin() {
 // sets quiz end page as the final score and gives the user their rating
 
 function setScore() {
-    let score = Math.round(localStorage.getItem('score'));
+    let score = localStorage.getItem('score');
     document.getElementById("finalScore").innerText = score;
     
     let username = localStorage.getItem('username');
@@ -388,14 +388,27 @@ function setScore() {
     }
 }
 
-// sets the users score on the highscores page
+// sets the users score on the highscores page, stores it in an array on local storage and orders it largest to smallest. 
 
 function highScores() {
-    let highScores = [];
-    score = localStorage.getItem('score');
-    highScores.push(score);
-    highScores.sort;
-    localStorage.setItem('highScores',highScores);
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    let score = localStorage.getItem('score');
+    highScores.push(score)
+    //sort the array
+    highScores = highScores.map(Number);
+    highScores.sort(function(a, b){return a - b}).reverse()
+    //ensure array is not greater than 5. 
+    if (highScores.length > 5) {
+        highScores.splice(5)
+    }
+    //store array on local storage
+    localStorage.setItem('highScores', JSON.stringify(highScores))
+
+    createHighScores()
+}
+
+function createHighScores() {
+    let highScores = JSON.parse(localStorage.getItem("highScores"))
 
     let li = '<ol>';
     highScores.forEach(function(listMaker) {
