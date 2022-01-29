@@ -560,9 +560,7 @@ function setScore() {
 function highScores() {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let score = localStorage.getItem('score');
-        if (score > 0) {
-            highScores.push(JSON.stringify(score));
-        }
+    highScores.push(JSON.parse(score));
     localStorage.clear('score');
     //sort the array
     highScores = highScores.map(Number);

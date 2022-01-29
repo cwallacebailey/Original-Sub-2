@@ -150,7 +150,7 @@ Two key improvements
 
 * It would be good to have a leaderboard rather than a highscores list allowing the user to see how they performed vs other users of the quiz. 
 
-In addition to the above extra questions should be added to keep the quiz interesting and allow multiple play throughs without seeing the same celeb. Around 100 questions would probably offer a significantly improved user experience over the existing 10 questions. 
+In addition to the above extra questions should be added to keep the quiz interesting and allow multiple play throughs without seeing the same celeb. Around 100 questions would probably offer a significantly improved user experience over the existing 25 questions. 
 
 [return to contents](<#contents>)
 
