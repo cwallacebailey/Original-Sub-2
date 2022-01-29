@@ -562,7 +562,7 @@ function highScores() {
     let score = localStorage.getItem('score');
         if (score > 0) {
             score = JSON.parse(score)
-            highScores.push(score)
+            highScores.push(JSON.stringify(score))
         }
     localStorage.clear('score')
     //sort the array
