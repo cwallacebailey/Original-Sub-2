@@ -428,8 +428,6 @@ function createHighScores() {
 // prevents the "play again" button from showing if the game hasn't yet been played
 
 function playAgain() {
-    document.getElementById("hide").setAttribute("style", "display: block")
-
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     if (highScores.length <= 1) {
         document.getElementById("playAgain").setAttribute("style", "display: none")
