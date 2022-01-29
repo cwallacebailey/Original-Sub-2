@@ -552,6 +552,7 @@ function setScore() {
     } else {
         document.getElementById("rank").innerText = "It's ok, celebs are not your thing";
     }
+    highScores()
 }
 
 // sets the users score on the highscores page, stores it in an array on local storage and orders it largest to smallest. 
@@ -573,24 +574,23 @@ function highScores() {
     }
     //store array on local storage
     localStorage.setItem('highScores', JSON.stringify(highScores))
-    // call function to create leaderboard
-    createHighScores()
-    document.getElementById("hide").setAttribute("style", "display: none")
 }
 
 // creates innerHTML of leaderboard from highScores array
 
 function createHighScores() {
-    let highScores = JSON.parse(localStorage.getItem("highScores"))
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || []
+    if (highScores.length >= 1) {
+        let li = '<ol>';
+        highScores.forEach(function(listMaker) {
+            li += '<li>'+listMaker+'</li>';
+        });
 
-    let li = '<ol>';
-    highScores.forEach(function(listMaker) {
-        li += '<li>'+listMaker+'</li>';
-    });
+        li += '</ol>';
 
-    li += '</ol>';
-
-    document.getElementById("leaderboard-list").innerHTML = li;
+        document.getElementById("leaderboard-list").innerHTML = li;
+    }
+    document.getElementById("hide").setAttribute("style", "display: none")
 }
 
 // prevents the "play again" button from showing if the game hasn't yet been played
