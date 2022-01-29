@@ -257,6 +257,15 @@ function clickCheck() {
     }
 }
 
+// reduces points to win with each image flipped. 
+
+function reducePointsToWin() {
+    let setPointsToWin = document.getElementById("pointsToWin");
+    let pointsToWin = document.getElementById("pointsToWin").innerHTML;
+    pointsToWin = Math.floor(pointsToWin/2);
+    setPointsToWin.innerHTML = pointsToWin;
+}
+
 // flips the card. If more than one section has been revealed points to win is halved by calling clickCheck() which calls reducePointsToWin()
 
 let flipCard = (event) => {
@@ -359,15 +368,6 @@ function LoadQuestion() {
     p4 = 0;
 }
 
-// reduces points to win with each image flipped. 
-
-function reducePointsToWin() {
-    let setPointsToWin = document.getElementById("pointsToWin");
-    let pointsToWin = document.getElementById("pointsToWin").innerHTML;
-    pointsToWin = pointsToWin/2;
-    setPointsToWin.innerHTML = pointsToWin;
-}
-
 // sets quiz end page as the final score and gives the user their rating
 
 function setScore() {
@@ -429,7 +429,7 @@ function createHighScores() {
 
 function playAgain() {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    if (highScores.length <= 1) {
+    if (highScores.length < 1) {
         document.getElementById("playAgain").setAttribute("style", "display: none")
     } else {
         document.getElementById("hide").setAttribute("style", "display: block")
