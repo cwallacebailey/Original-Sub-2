@@ -138,6 +138,8 @@ The highscores of the user are presented here, the below image shows only one as
 
 ![Highscores page](assets/readme_images/highscores.png)
 
+Highscores can only be seen once the quiz has been played through once and if user accesses this page before having played through the game the "play again" button is not visible. This prevents them being able to play the game without first inputting a username through the index.html page. 
+
 [return to contents](<#contents>)
 
 ## Features left to Implement
@@ -172,13 +174,13 @@ The exception is the quiz-end.html page which received two warnings for empty he
 
 The metrics read that: 
 
-There are 13 functions in this file.
+There are 20 functions in this file.
 
-Function with the largest signature take 1 arguments, while the median is 0.
+Function with the largest signature take 2 arguments, while the median is 0.
 
-Largest function has 20 statements in it, while the median is 8.
+Largest function has 22 statements in it, while the median is 5.5.
 
-The most complex function has a cyclomatic complexity value of 4 while the median is 2.
+The most complex function has a cyclomatic complexity value of 9 while the median is 2.
 
 [return to contents](<#contents>)
 

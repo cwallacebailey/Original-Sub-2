@@ -437,19 +437,19 @@ function reducePointsToWin() {
 // flips the card. If more than one section has been revealed points to win is halved by calling clickCheck() which calls reducePointsToWin()
 
 let flipCard = (event) => {
-    preventDoubleClick(event)
+    preventDoubleClick(event);
     if (event.target.id === "pic1" && p1 === 1) {
         event.target.setAttribute('src', array[randomNumber].img1);
-        clickCheck()
+        clickCheck();
     } else if (event.target.id === "pic2" && p2 === 1) {
         event.target.setAttribute('src', array[randomNumber].img2);
-        clickCheck()
+        clickCheck();
     } else if (event.target.id === "pic3" && p3 === 1) {
         event.target.setAttribute('src', array[randomNumber].img3);
-        clickCheck()
+        clickCheck();
     } else if (event.target.id === "pic4" && p4 === 1) {
         event.target.setAttribute('src', array[randomNumber].img4);
-        clickCheck()
+        clickCheck();
     }
 };
 
@@ -552,7 +552,7 @@ function setScore() {
     } else {
         document.getElementById("rank").innerText = "It's ok, celebs are not your thing";
     }
-    highScores()
+    highScores();
 }
 
 // sets the users score on the highscores page, stores it in an array on local storage and orders it largest to smallest. 
@@ -561,25 +561,24 @@ function highScores() {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let score = localStorage.getItem('score');
         if (score > 0) {
-            score = JSON.parse(score)
-            highScores.push(JSON.stringify(score))
+            highScores.push(JSON.stringify(score));
         }
-    localStorage.clear('score')
+    localStorage.clear('score');
     //sort the array
     highScores = highScores.map(Number);
-    highScores.sort(function(a, b){return a - b}).reverse()
+    highScores.sort(function(a, b){return a - b}).reverse();
     //ensure array is not greater than 5. 
     if (highScores.length > 5) {
-        highScores.splice(5)
+        highScores.splice(5);
     }
     //store array on local storage
-    localStorage.setItem('highScores', JSON.stringify(highScores))
+    localStorage.setItem('highScores', JSON.stringify(highScores));
 }
 
 // creates innerHTML of leaderboard from highScores array
 
 function createHighScores() {
-    let highScores = JSON.parse(localStorage.getItem("highScores")) || []
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     if (highScores.length >= 1) {
         let li = '<ol>';
         highScores.forEach(function(listMaker) {
@@ -590,7 +589,7 @@ function createHighScores() {
 
         document.getElementById("leaderboard-list").innerHTML = li;
     }
-    document.getElementById("hide").setAttribute("style", "display: none")
+    document.getElementById("hide").setAttribute("style", "display: none");
 }
 
 // prevents the "play again" button from showing if the game hasn't yet been played
@@ -598,8 +597,8 @@ function createHighScores() {
 function playAgain() {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     if (highScores.length < 1) {
-        document.getElementById("playAgain").setAttribute("style", "display: none")
+        document.getElementById("playAgain").setAttribute("style", "display: none");
     } else {
-        document.getElementById("hide").setAttribute("style", "display: block")
+        document.getElementById("hide").setAttribute("style", "display: block");
     }
 }
