@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="celebrity quiz">
     <!--font awesome and google fonts-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
             <h1>Welcome to the Celebrity Quiz</h1>
             <label for="username" id="label">Enter Username:</label>
             <input type="text" id="username">
-            <button class="button" onclick="saveUsername()">Enter Quiz</button>
+            <button class="button" onclick="saveUsername()" aria-label="click to play quiz">Play Quiz</button>
             <a href="highscores.html" class="button" id="playAgain">Highscores</a>
             <p class="button" id="instructionsBox" onclick="instructionsGone()">Click an image section to reveal part of the celebrity. Guess the celeb with as few flips as you can to get the most points</p>
             <p class="button" onclick="instructions()" id="instructions">Instructions</p>
