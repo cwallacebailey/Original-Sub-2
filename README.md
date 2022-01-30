@@ -23,6 +23,7 @@ Please see the final project [here](https://cwallacebailey.github.io/Project_2_C
         * [Quiz End Page](#quiz-end-page)
         * [Features to Implement](#features-left-to-implement)
 * [Testing](#testing)
+* [Deployment](#deployment)
 
 # User Experience
 
@@ -134,7 +135,7 @@ From here the user can play again, go to the home page or check their highscores
 
 #### Highscores Page
 
-The highscores of the user are presented here, the below image shows only one as it has only been played through once. If played successive times more scores would appear. 
+The highscores of the user are presented here, the below image shows only one as it has only been played through once. If played successive times more scores would appear up to a maximum of 5. Once the user has played through more than 5 times only the top 5 scores would be shown as the high scores array uses a splice to remove the lowest scores until only 5 high scores remain.
 
 ![Highscores page](assets/readme_images/highscores.png)
 
@@ -184,7 +185,31 @@ The most complex function has a cyclomatic complexity value of 9 while the media
 
 [return to contents](<#contents>)
 
-## Deployment
+## Browser Testing 
+
+### Laptop Computer
+
+* Chrome
+    * Thoroughly tested and all features are functional
+
+* Mozilla Firefox
+    * Thoroughly tested and all features are functional
+
+* Microsoft Edge
+    * Thoroughly tested and all features are functional
+
+* Internet Explorer
+    * Internet explorer does not support the JS script and the click to enter button cannot be clicked so the quiz is unavailable on this browser. However, as this has been replaced with Microsoft Edge which does support all features of the quiz this should not be an issue. 
+
+### Mobile Phone
+
+* Chrome
+    * Thoroughly tested and all features are functional
+
+* Mozilla Firefox
+    * Thoroughly tested and all features are functional
+
+# Deployment
 
 ## Steps for Deployment
 

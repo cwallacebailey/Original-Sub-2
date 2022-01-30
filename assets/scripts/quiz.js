@@ -561,7 +561,7 @@ function highScores() {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let score = localStorage.getItem('score');
     highScores.push(JSON.parse(score));
-    localStorage.clear('score');
+    localStorage.removeItem('score');
     //sort the array
     highScores = highScores.map(Number);
     highScores.sort(function(a, b){return a - b}).reverse();
