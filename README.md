@@ -310,7 +310,9 @@ Best practices could be improved for both by switching 7 items from HTTP/1.1 to 
 
 3. Quiz Answers
 
-* When the user selected an answer a timeout function is called before the new questions is loaded. It was possible for the user to use the window of time provided by the timeout function to click more than once on the correct answer to keep getting the points to win over and over again thus pushing their points way over the total possible. To prevent this the number of times the user has clicked on the answer is counted with the variable 'qclicks' which increases by one for each click. The answer is only checked and points won if the variable qclicks is equal to 1. Once the function loadQuestion() is run the qclicks is reset to 0.  
+* When the user selected an answer a timeout function is called before the new questions is loaded. It was possible for the user to use the window of time provided by the timeout function to click more than once on the correct answer to keep getting the points to win over and over again thus pushing their points way over the total possible. To prevent this the number of times the user has clicked on the answer is counted with the variable 'qclicks' which increases by one for each click. The answer is only checked and points won if the variable qclicks is equal to 1. Once the function loadQuestion() is run the qclicks is reset to 0.
+
+* The quiz answers are generated and an event listener applied to them so they can be clicked and the answer checked. The event listener used was originally inside the loadquestion() function which meant each time the function was called the event listener would increase in the number of times it was generated. So, clicking the first time would produce a single event, clicking the second time would generate two events and this continued and grew with each successive click. To fix this I had to use the tutoring service provided by code instiute and found from their advice that I needed to move the event listener to outside of the function it was in to prevent the loop issue. 
 
 4. Favicon
 
