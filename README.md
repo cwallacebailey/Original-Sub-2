@@ -266,9 +266,22 @@ The site responsiveness was tested and found to be suitable on the following dev
 
 [return to contents](<#contents>)
 
+## Lighthouse
+
+The site was tested using DevTools Lighthouse feature. Results below: 
+
+Desktop Site: 
+
+![celebrity quiz lighthouse-desktop](assets/readme_images/lighthouse_desktop.png)
+
+Mobile site: 
+
+
+![celebrity quiz lighthouse-desktop](assets/readme_images/lighthouse_mobile.png)
+
+Best practices could be improved for both by switching 7 items from HTTP/1.1 to HTTP/2. As the score was 93 which is considered good I left the code as is. 
+
 ## Solved Bugs
-
-
 
 # Deployment
 

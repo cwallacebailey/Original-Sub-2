@@ -453,6 +453,8 @@ let flipCard = (event) => {
     }
 };
 
+let qclicks = 0 // global variable
+
 function checkAnswer(event) {
 // check answer variables
     let selection = event.target;
@@ -467,6 +469,9 @@ function checkAnswer(event) {
     let sad = new Audio('assets/mp3/sad.wav');
     let sound = document.getElementById("sound");
 
+    qclicks += 1
+
+    if (qclicks === 1) {
     if (answer === correctAnswer) {
         selection.style.backgroundColor = "green";
         if (sound.innerHTML === '<i class="fas fa-volume-up"></i>') {
@@ -482,7 +487,6 @@ function checkAnswer(event) {
         points.innerText = 20;
         clicks = 0;
         }
-        
     setTimeout(function() {
         let score = parseInt(document.getElementById("score").innerText);
         selection.style.backgroundColor = "#0c1a25";
@@ -497,6 +501,7 @@ function checkAnswer(event) {
             LoadQuestion();
         }
     }, 1000);
+}
 }
 
 function scoreUpdate() {
@@ -534,6 +539,7 @@ function LoadQuestion() {
     p2 = 0;
     p3 = 0;
     p4 = 0;
+    qclicks = 0;
 }
 
 // sets quiz end page as the final score and gives the user their rating
