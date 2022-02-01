@@ -595,7 +595,7 @@ function createHighScores() {
 
         li += '</ol>';
 
-        document.getElementById("leaderboard-list").innerHTML = li;
+        document.getElementById("highscores-list").innerHTML = li;
     }
     document.getElementById("hide").setAttribute("style", "display: none");
 }
