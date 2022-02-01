@@ -504,6 +504,8 @@ function checkAnswer(event) {
 }
 }
 
+// updates the users score between questions and resets points to win as 20
+
 function scoreUpdate() {
     let points = document.getElementById("pointsToWin");
     let pointsToWin = parseInt(points.innerText);
@@ -514,6 +516,8 @@ function scoreUpdate() {
     setScore.innerHTML = score;
     points.innerText = 20;
 }
+
+// loads the next question once the user has answered the previous question
 
 function LoadQuestion() {
     let picture1 = document.getElementById("pic1");
