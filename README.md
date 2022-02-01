@@ -23,6 +23,10 @@ Please see the final project [here](https://cwallacebailey.github.io/Project_2_C
         * [Quiz End Page](#quiz-end-page)
         * [Features to Implement](#features-left-to-implement)
 * [Testing](#testing)
+    * [Validation of Code](#validation-of-code)
+    * [Site Testing](#site-testing)
+    * [Lighthouse](#lighthouse)
+    * [Solved Bugs](#solved-bugs)
 * [Deployment](#deployment)
 
 # User Experience
@@ -184,6 +188,9 @@ Largest function has 22 statements in it, while the median is 5.5.
 The most complex function has a cyclomatic complexity value of 9 while the median is 2.
 
 [return to contents](<#contents>)
+
+## Site Testing
+---
 
 The below references "all features are functional". This accounts for the following: 
 
